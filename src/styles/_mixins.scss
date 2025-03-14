@@ -1,0 +1,206 @@
+@use "sass:map";
+@use "variables" as *;
+
+// Typography Mixins
+@mixin heading-1 {
+    font-family: $font-family-base;
+    font-size: $font-size-6xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    letter-spacing: -0.02em;
+    
+    @include media-breakpoint-down(lg) {
+      font-size: $font-size-5xl;
+    }
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-4xl;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-3xl;
+    }
+  }
+  
+  @mixin heading-2 {
+    font-family: $font-family-base;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    letter-spacing: -0.01em;
+    
+    @include media-breakpoint-down(lg) {
+      font-size: $font-size-3xl;
+    }
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-2xl;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-xl;
+    }
+  }
+  
+  @mixin heading-3 {
+    font-family: $font-family-base;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    letter-spacing: -0.01em;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-xl;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  @mixin body-large {
+    font-family: $font-family-base;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-relaxed;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-base;
+    }
+  }
+  
+  @mixin body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-relaxed;
+  }
+  
+  @mixin body-small {
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-normal;
+  }
+  
+  @mixin caption {
+    font-family: $font-family-base;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-normal;
+  }
+  
+  // Header variables
+  $top-header-height: 40px;
+  
+  // Breakpoints
+  $breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+  );
+  
+  // Mixins
+  @mixin media-breakpoint-down($breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
+      @media (max-width: map.get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+  }
+  
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin section-padding {
+    padding: 50px 0;
+    
+    @include media-breakpoint-down(lg) {
+      padding: 60px 0;
+    }
+    
+    @include media-breakpoint-down(md) {
+      padding: 40px 0;
+    }
+  }
+  
+  @mixin section-title {
+    font-family: $font-family-base;
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    letter-spacing: -0.01em;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background-color: $primary-color;
+    }
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-3xl;
+    }
+  }
+  
+  // Utilities
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    
+    @include media-breakpoint-down(xl) {
+      max-width: 1140px;
+    }
+    
+    @include media-breakpoint-down(lg) {
+      max-width: 960px;
+    }
+    
+    @include media-breakpoint-down(md) {
+      max-width: 720px;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      max-width: 540px;
+    }
+  }
+
+  @mixin heading-3 {
+    font-family: $font-family-base;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    letter-spacing: -0.01em;
+    
+    @include media-breakpoint-down(md) {
+      font-size: $font-size-xl;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      font-size: $font-size-lg;
+    }
+  }
+
+  @mixin section-padding {
+    padding: 50px 0;
+    
+    @include media-breakpoint-down(lg) {
+      padding: 60px 0;
+    }
+    
+    @include media-breakpoint-down(md) {
+      padding: 40px 0;
+    }
+  }

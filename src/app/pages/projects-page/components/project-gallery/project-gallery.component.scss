@@ -1,0 +1,91 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+.project-gallery {
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .category-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+  
+  .category-btn {
+    padding: 8px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 20px;
+    background: transparent;
+    cursor: pointer;
+    font-size: $font-size-sm;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      border-color: #666;
+      background: #f5f5f5;
+    }
+    
+    &.active {
+      background: #333;
+      color: white;
+      border-color: #333;
+    }
+  }
+  
+  .masonry-item {
+    width: calc(33.333% - 16px);
+    margin-bottom: 16px;
+    
+    @media (max-width: 768px) {
+      width: calc(50% - 16px);
+    }
+    
+    @media (max-width: 480px) {
+      width: 100%;
+    }
+  }
+  
+  .masonry-content {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover img {
+      transform: scale(1.05);
+    }
+  }
+  
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    padding: 20px;
+    color: white;
+    
+    h3 {
+      margin: 0;
+      font-size: $font-size-lg;
+    }
+    
+    .category-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: $font-size-xs;
+      margin-top: 8px;
+    }
+  }

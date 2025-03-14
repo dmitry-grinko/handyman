@@ -1,0 +1,17 @@
+<div class="services-section">
+  <div class="container">
+    <div class="section-header text-center">
+      <app-section-title [data]="sectionTitleData"></app-section-title>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4" *ngFor="let i of serviceItems">
+          <app-service-item [serviceItemData]="i"></app-service-item>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <app-big-button [buttonText]="buttonText" (action)="navigateToProjects()"></app-big-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<div class="header" [class.scrolled]="isScrolled">
+  <app-top-header [class.hidden]="isScrolled"></app-top-header>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="headerContent.brand.link">{{ headerContent.brand.text }}</a>
+      
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        (click)="isMenuCollapsed = !isMenuCollapsed"
+        [attr.aria-expanded]="!isMenuCollapsed"
+        aria-controls="navbarContent"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div 
+        class="navbar-collapse" 
+        [class.collapse]="isMenuCollapsed" 
+        id="navbarContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" *ngFor="let item of headerContent.navItems">
+            <a class="nav-link" 
+               [routerLink]="item.link" 
+               routerLinkActive="active" 
+               [routerLinkActiveOptions]="{exact: item.exact || false}">
+              {{ item.text }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>

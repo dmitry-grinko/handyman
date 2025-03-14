@@ -1,0 +1,49 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+.services-section {
+    @include section-padding;
+    background-color: $gray-light;
+  
+    .section-header {
+      margin-bottom: 30px;
+  
+      h2 {
+        @include section-title;
+        margin-bottom: 25px;
+      }
+    }
+  
+    .text-center {
+      display: flex;
+      justify-content: center;
+  
+      app-big-button {
+        display: block;
+        width: fit-content;
+      }
+    }
+  
+    @include media-breakpoint-down(lg) {
+      .section-header {
+        margin-bottom: 40px;
+  
+        .section-description {
+          @include body;
+          padding: 0 20px;
+        }
+      }
+  
+      .text-center {
+        margin-top: 20px;
+      }
+    }
+  
+    @include media-breakpoint-down(md) {
+      .section-header {
+        h2 {
+          @include heading-3;
+        }
+      }
+    }
+  }

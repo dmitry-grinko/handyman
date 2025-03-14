@@ -1,0 +1,464 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+
+// Additional variables
+$testimonial-overlay-color: rgba(0, 0, 0, 0.5);
+$icon-size: 32px;
+$nav-button-size: 56px;
+
+.testimonials-section {
+  position: relative;
+  padding-top: 100px;
+  width: 100%;
+  height: 600px;
+  @include flex-center;
+  overflow: hidden;
+
+  // Parallax background
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/par_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -2;
+  }
+
+  // Content container
+  .testimonial-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+    text-align: center;
+    color: $white;
+    position: relative;
+    z-index: 1;
+  }
+
+  // Quote icon
+  .quote-icon {
+    margin-bottom: 50px;
+    @include flex-center;
+    position: relative;
+    
+    .icon-wrapper {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      @include flex-center;
+      border: 1px solid rgba($white, 0.9);
+      background: transparent;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: rgba($white, 0.9);
+      }
+
+      svg {
+        width: $icon-size;
+        height: $icon-size;
+        color: $white;
+        stroke-width: 1;
+        opacity: 0.9;
+        transform: translate(-1px, -1px);
+      }
+    }
+  }
+
+  // Chat bubble icon
+  .chat-bubble-icon {
+    width: 80px;
+    height: 80px;
+    border: 2px solid $white;
+    border-radius: 50%;
+    @include flex-center;
+    margin: 0 auto 2rem;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 15px;
+      background-color: $white;
+    }
+
+    svg {
+      width: 40px;
+      height: 40px;
+      color: $white;
+      
+      path {
+        stroke: currentColor;
+        stroke-width: 2;
+        fill: none;
+      }
+    }
+  }
+
+  // Testimonial content
+  .testimonial-text {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-light;
+    line-height: $line-height-relaxed;
+    color: $white;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .yellow-stripe {
+    width: 40px;
+    height: 2px;
+    background-color: $primary-color;
+    margin: 0 auto 25px;
+  }
+
+  // Author info
+  .testimonial-author {
+    .author-name {
+      @include body-small;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+      color: $white;
+    }
+
+    .author-position {
+      @include caption;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba($white, 0.8);
+      margin: 0;
+    }
+  }
+
+  // Navigation arrows
+  .carousel-navigation {
+    position: absolute;
+    width: 90%;
+    max-width: 1000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    .nav-btn {
+      position: absolute;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+
+      .circle-button {
+        width: $nav-button-size;
+        height: $nav-button-size;
+        border-radius: 50%;
+        @include flex-center;
+        transition: all 0.1s ease;
+        background: transparent;
+        border: 1.5px solid rgba($white, 0.9);
+
+        svg {
+          width: 25px;
+          height: 25px;
+          color: $white;
+          stroke-linecap: round;
+          stroke-linejoin: round;
+        }
+      }
+
+      &.prev-btn {
+        left: -70px;
+        
+        .circle-button:hover {
+          background-color: $primary-color;
+          border-color: $primary-color;
+        }
+      }
+
+      &.next-btn {
+        right: -70px;
+
+        .circle-button:hover {
+          background-color: $primary-color;
+          border-color: $primary-color;
+        }
+      }
+    }
+  }
+
+  // Hide default carousel controls
+  ::ng-deep {
+    .carousel-indicators,
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+  }
+
+  // Stacked circle icons
+  .icon-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3rem;
+    
+    .circle-icon {
+      width: 70px;
+      height: 70px;
+      border: 2px solid $white;
+      border-radius: 50%;
+      @include flex-center;
+      background: transparent;
+
+      svg {
+        width: 30px;
+        height: 30px;
+        color: $white;
+      }
+    }
+
+    .connector {
+      width: 2px;
+      height: 20px;
+      background-color: $white;
+    }
+
+    .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: $white;
+      margin-top: 10px;
+    }
+  }
+
+  .testimonial-icon {
+    width: 80px;
+    height: 80px;
+    border: 1px solid $white;
+    border-radius: 50%;
+    @include flex-center;
+    margin: 0 auto 2rem;
+    
+    i {
+      font-size: 2rem;
+      color: $white;
+      font-weight: 100;
+    }
+    
+    @include media-breakpoint-down(md) {
+      width: 70px;
+      height: 70px;
+      
+      i {
+        font-size: 1.75rem;
+      }
+    }
+    
+    @include media-breakpoint-down(sm) {
+      width: 60px;
+      height: 60px;
+      
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+/* Responsive Styles */
+@include media-breakpoint-down(md) {
+  .testimonials-section {
+    height: 500px;
+
+    .testimonial-text {
+      @include heading-3;
+      padding: 0 30px;
+    }
+
+    .quote-icon {
+      margin-bottom: 40px;
+
+      .icon-wrapper {
+        width: 60px;
+        height: 60px;
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+
+        &::after {
+          bottom: -20px;
+        }
+      }
+    }
+
+    .chat-bubble-icon {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 1.75rem;
+
+      svg {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    .carousel-navigation {
+      width: 95%;
+
+      .nav-btn {
+        .circle-button {
+          width: 50px;
+          height: 50px;
+
+          svg {
+            width: 22px;
+            height: 22px;
+          }
+        }
+
+        &.prev-btn { left: -25px; }
+        &.next-btn { right: -25px; }
+      }
+    }
+
+    .yellow-stripe {
+      width: 35px;
+      margin-bottom: 20px;
+    }
+
+    .icon-stack {
+      margin-bottom: 2.5rem;
+      
+      .circle-icon {
+        width: 60px;
+        height: 60px;
+
+        svg {
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      .connector {
+        height: 15px;
+      }
+
+      .dot {
+        width: 3px;
+        height: 3px;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .testimonials-section {
+    height: 450px;
+
+    .testimonial-text {
+      @include body-large;
+      padding: 0 20px;
+    }
+
+    .quote-icon {
+      margin-bottom: 35px;
+
+      .icon-wrapper {
+        width: 50px;
+        height: 50px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .chat-bubble-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1.5rem;
+
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+
+      &::after {
+        height: 12px;
+        bottom: -12px;
+      }
+    }
+
+    .carousel-navigation {
+      width: 100%;
+
+      .nav-btn {
+        .circle-button {
+          width: 44px;
+          height: 44px;
+
+          svg {
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        &.prev-btn { left: 10px; }
+        &.next-btn { right: 10px; }
+      }
+    }
+
+    .yellow-stripe {
+      width: 30px;
+      margin-bottom: 18px;
+    }
+
+    .icon-stack {
+      margin-bottom: 2rem;
+      
+      .circle-icon {
+        width: 50px;
+        height: 50px;
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .connector {
+        height: 12px;
+      }
+
+      .dot {
+        width: 3px;
+        height: 3px;
+        margin-top: 6px;
+      }
+    }
+  }
+}

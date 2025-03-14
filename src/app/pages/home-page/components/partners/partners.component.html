@@ -1,0 +1,22 @@
+<!-- Partners Section -->
+<section class="partners">
+  <div class="container">
+    <app-section-title [data]="sectionTitleData"></app-section-title>
+    
+    <!-- Partners Carousel -->
+    <ngb-carousel #carousel 
+                 [interval]="5000" 
+                 [pauseOnHover]="true" 
+                 [showNavigationIndicators]="true"
+                 [wrap]="true"
+                 (slide)="onSlideChange($event)">
+      <ng-template ngbSlide *ngFor="let group of partnerGroups; let i = index; trackBy: trackByIndex" [id]="'slide-' + i">
+        <div class="partners__grid">
+          <div class="partners__item" *ngFor="let partner of group; let j = index; trackBy: trackByIndex">
+            <img [src]="partner.logo" [alt]="partner.name" class="partners__logo" loading="lazy">
+          </div>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+  </div>
+</section>

@@ -1,0 +1,38 @@
+<div class="testimonials-section">
+  <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="true" [pauseOnFocus]="true" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+    <ng-template ngbSlide *ngFor="let testimonial of testimonials">
+      <div class="testimonial-container">
+        <div class="testimonial-icon">
+          <i class="fa-regular fa-comments"></i>
+        </div>
+        <div class="testimonial-content">
+          <blockquote class="testimonial-text">
+            "{{testimonial.text}}"
+          </blockquote>
+          <div class="yellow-stripe"></div>
+          <div class="testimonial-author">
+            <h4 class="author-name">{{testimonial.authorName}}</h4>
+            <p class="author-position">{{testimonial.authorPosition}}</p>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+  
+  <div class="carousel-navigation">
+    <button class="nav-btn prev-btn" (click)="carousel.prev()">
+      <span class="circle-button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </span>
+    </button>
+    <button class="nav-btn next-btn" (click)="carousel.next()">
+      <span class="circle-button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+</div>

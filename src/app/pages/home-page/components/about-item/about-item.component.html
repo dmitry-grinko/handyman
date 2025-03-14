@@ -1,0 +1,11 @@
+<div class="about-item" *ngIf="aboutItemData">
+  <div class="about-item__icon">
+    <fa-icon [icon]="aboutItemData.icon"></fa-icon>
+  </div>
+  <div class="about-item__content">
+    <h2>{{ aboutItemData.title }}</h2>
+    <p>
+      {{ aboutItemData.description }}
+    </p>
+  </div>
+</div>

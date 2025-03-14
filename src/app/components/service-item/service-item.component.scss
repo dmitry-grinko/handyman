@@ -1,0 +1,87 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    background-color: $white;
+    margin-bottom: 60px;
+  
+    .service-image {
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 0;
+      
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  
+    h2 {
+      font-family: $font-family-heading;
+      font-size: $font-size-lg;
+      font-weight: $font-weight-semibold;
+      margin: 0 0 24px 0;
+    }
+  
+    .divider {
+      width: 48px;
+      height: 2px;
+      background-color: $primary-color;
+      margin: 0 auto 32px;
+    }
+  
+    p {
+      font-family: $font-family-base;
+      font-size: $font-size-sm;
+      font-weight: $font-weight-normal;
+      line-height: $line-height-relaxed;
+      margin: 0;
+      max-width: 600px;
+    }
+  
+    .service-content {
+      padding: 20px;
+    }
+  }
+  
+  @include media-breakpoint-down(lg) {
+    .service-item {
+      padding: 60px 15px;
+      margin-bottom: 40px;
+  
+      .service-image {
+        margin-bottom: 40px;
+      }
+  
+      h2 {
+        margin-bottom: 20px;
+      }
+  
+      p {
+        padding: 0 20px;
+      }
+    }
+  }
+  
+  @include media-breakpoint-down(md) {
+    .service-item {
+      padding: 40px 15px;
+      margin-bottom: 30px;
+  
+      .service-image {
+        margin-bottom: 32px;
+      }
+  
+      p {
+        br {
+          display: none;
+        }
+      }
+    }
+  }

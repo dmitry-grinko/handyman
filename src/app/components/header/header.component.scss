@@ -1,0 +1,124 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+// Component variables
+$header-height: 80px;
+$nav-link-padding: 30px 25px;
+$brand-font-size: 24px;
+$top-header-height: 40px;
+
+:host {
+  display: block;
+  position: relative;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1020;
+  background-color: $white;
+  transition: transform 0.1s ease;
+
+  &.scrolled {
+    transform: translateY(-$top-header-height);
+
+    app-top-header {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    + :host-context(body) {
+      margin-top: 90px; // Only navbar height when scrolled
+    }
+  }
+
+  app-top-header {
+    display: block;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+  }
+
+  .navbar {
+    height: 90px;
+    padding: 0;
+    border-bottom: 1px solid #eeeeee;
+
+    .container {
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand {
+      @include heading-3;
+      color: $secondary-color;
+      text-decoration: none;
+      padding: 0;
+      margin-right: 50px;
+    }
+
+    .navbar-toggler {
+      padding: 0;
+      border: none;
+      
+      &:focus {
+        box-shadow: none;
+        outline: none;
+      }
+    }
+
+    .navbar-collapse {
+      @include media-breakpoint-down(lg) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: $white;
+        padding: 0;
+        border-top: 1px solid #eeeeee;
+      }
+    }
+
+    .navbar-nav {
+      gap: 5px;
+      
+      .nav-item {
+        .nav-link {
+          padding: 35px 15px;
+          @include body-small;
+          font-weight: $font-weight-medium;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          transition: color 0.2s ease;
+
+          @include media-breakpoint-down(lg) {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eeeeee;
+          }
+
+          &:hover,
+          &.active {
+            color: $secondary-color;
+          }
+        }
+
+        &:last-child {
+          .nav-link {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Add margin to account for header height
+:host-context(body) {
+  margin-top: 130px; // 90px navbar + 40px top header
+  transition: margin 0.1s ease;
+
+  @include media-breakpoint-down(md) {
+    margin-top: 90px; // Only navbar height since top-header is hidden on mobile/tablet
+  }
+}

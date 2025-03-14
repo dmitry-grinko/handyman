@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="project-gallery">
+    <div class="category-filter">
+      <button *ngFor="let category of categories" [class.active]="selectedCategory === category"
+        (click)="selectCategory(category)" class="category-btn">
+        {{ category }}
+      </button>
+    </div>
+
+    <ngx-masonry [options]="masonryOptions">
+      <div ngxMasonryItem class="masonry-item" *ngFor="let image of filteredImages">
+        <div class="masonry-content">
+          <img [src]="image.src" [alt]="image.title">
+          <div class="overlay">
+            <h3>{{ image.title }}</h3>
+            <span class="category-tag">{{ image.category }}</span>
+          </div>
+        </div>
+      </div>
+    </ngx-masonry>
+  </div>
+</div>

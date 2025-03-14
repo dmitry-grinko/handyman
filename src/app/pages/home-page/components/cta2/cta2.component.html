@@ -1,0 +1,13 @@
+<section class="cta2">
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-auto">
+        <div class="d-flex align-items-center gap-4">
+          <h2 class="cta2__title mb-0">{{content.title}}</h2>
+          <!-- <a routerLink="/projects" class="cta2__button">VIEW ALL PROJECTS</a> -->
+          <app-big-button [buttonText]="myButtonText" (action)="navigateToProjects()"></app-big-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

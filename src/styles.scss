@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@use "bootstrap/scss/bootstrap" as *;
+
+@use "styles/variables" as *;
+@use "styles/mixins" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
+
+// Global icon styles
+i[class^="fa-"],
+i[class*=" fa-"] {
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Global styles for links with icons
+a {
+  &[class*="fa-"],
+  & i[class*="fa-"] {
+    text-decoration: none;
+  }
+}
+
+// Container styles
+.container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
+}
+

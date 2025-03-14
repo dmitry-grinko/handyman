@@ -1,0 +1,109 @@
+@use "sass:map";
+@use "../../../styles/variables" as *;
+
+.breadcrumbs-container {
+  background-color: $gray-light;
+  padding: 35px 0;
+  border-bottom: 1px solid $border-color;
+
+  h1 {
+    font-family: $font-family-base;
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-semibold;
+    color: $text-dark;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .breadcrumb-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    .you-are-here {
+      font-family: $font-family-base;
+      color: $text-light;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-normal;
+      margin-right: 4px;
+    }
+  }
+
+  .breadcrumb {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family-base;
+    font-size: $font-size-xs;
+    display: inline-flex;
+    align-items: center;
+
+    .breadcrumb-item {
+      line-height: $line-height-tight;
+      display: flex;
+      align-items: center;
+      
+      + .breadcrumb-item {
+        padding-left: 6px;
+        
+        &::before {
+          content: "/";
+          color: $text-light;
+          padding-right: 6px;
+          font-weight: $font-weight-normal;
+          line-height: 1;
+        }
+      }
+
+      a {
+        color: $text-dark;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        font-weight: $font-weight-medium;
+
+        &:hover {
+          color: $text-light;
+        }
+      }
+
+      &.active {
+        color: $text-light;
+        font-weight: $font-weight-normal;
+      }
+    }
+  }
+}
+
+@media (max-width: map.get($breakpoints, "md")) {
+  .breadcrumbs-container {
+    padding: 25px 0;
+
+    h1 {
+      font-size: $font-size-2xl;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .breadcrumb-wrapper {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: map.get($breakpoints, "sm")) {
+  .breadcrumbs-container {
+    padding: 20px 0;
+
+    h1 {
+      font-size: $font-size-xl;
+    }
+
+    .breadcrumb-wrapper {
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      gap: 0;
+    }
+  }
+}

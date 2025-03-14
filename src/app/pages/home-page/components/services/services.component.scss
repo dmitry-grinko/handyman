@@ -1,0 +1,87 @@
+@use "sass:map";
+@use "../../../../../styles/variables" as *;
+
+.services-section {
+  background: $gray-light;
+  padding: 5rem 0;
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+
+    .service-card {
+      background: $white;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid $border-color;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        border-color: $primary-color;
+
+        .icon-wrapper {
+          background: $primary-color;
+          color: $white;
+        }
+      }
+
+      .icon-wrapper {
+        width: 80px;
+        height: 80px;
+        background: rgba($primary-color, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        transition: all 0.3s ease;
+
+        fa-icon {
+          font-size: 2rem;
+          color: $primary-color;
+        }
+      }
+
+      h3 {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-bold;
+        margin-bottom: 1rem;
+        color: $text-dark;
+      }
+
+      p {
+        color: $text-light;
+        line-height: $line-height-relaxed;
+        margin-bottom: 1.5rem;
+      }
+
+      .learn-more {
+        color: $primary-color;
+        font-weight: $font-weight-semibold;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: map.get($breakpoints, md)) {
+  .services-section {
+    padding: 3rem 0;
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+}

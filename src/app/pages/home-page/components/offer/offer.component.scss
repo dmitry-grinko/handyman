@@ -1,0 +1,106 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+
+.offer-section {
+    padding: 80px 0;
+    background-color: $gray-light;
+  
+    .service-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 60px;
+      flex-wrap: wrap;
+  
+      @include media-breakpoint-down(md) {
+        gap: 20px;
+      }
+    }
+  
+    .service-card {
+      text-align: center;
+      padding: 30px;
+      background: $white;
+      border-radius: 8px;
+      min-width: 200px;
+      transition: all 0.1s ease;
+      cursor: pointer;
+  
+      &:hover {
+        transform: translateY(-5px);
+      }
+  
+      &.active {
+        background-color: $primary-color;
+        color: $white;
+  
+        .icon-wrapper {
+          background-color: rgba(255, 255, 255, 0.2);
+          
+          i {
+            color: $white;
+          }
+        }
+  
+        h3 {
+          color: $white;
+        }
+      }
+  
+      .icon-wrapper {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: $gray-light;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        transition: all 0.1s ease;
+  
+        i {
+          font-size: 28px;
+          color: $primary-color;
+        }
+      }
+  
+      h3 {
+        margin: 0;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-medium;
+        color: $text-dark;
+      }
+  
+      @include media-breakpoint-down(sm) {
+        min-width: 160px;
+        padding: 20px;
+  
+        .icon-wrapper {
+          width: 60px;
+          height: 60px;
+  
+          i {
+            font-size: 24px;
+          }
+        }
+  
+        h3 {
+          font-size: $font-size-base;
+        }
+      }
+    }
+  
+    .offer-description {
+      color: $text-light;
+      line-height: $line-height-loose;
+      margin: 0;
+      font-size: $font-size-base;
+  
+      @include media-breakpoint-down(sm) {
+        font-size: $font-size-sm;
+        line-height: $line-height-relaxed;
+      }
+    }
+  }
+  

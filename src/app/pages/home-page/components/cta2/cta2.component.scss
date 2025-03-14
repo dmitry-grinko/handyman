@@ -1,0 +1,82 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+
+// Component variables
+$cta-padding: 3rem;
+$cta-padding-md: 3rem;
+$cta-padding-sm: 2rem;
+
+.cta2 {
+  padding: $cta-padding 0;
+  background-color: $gray-lighter;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/assets/images/pattern.png');
+    opacity: 0.1;
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta2__title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $text-dark;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+
+    @include media-breakpoint-down(md) {
+      font-size: 2rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+      font-size: 1.75rem;
+    }
+  }
+
+  .cta2-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .description {
+      font-size: 1.125rem;
+      color: $text-light;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+
+      @include media-breakpoint-down(md) {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    .cta2-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      @include media-breakpoint-down(sm) {
+        gap: 0.75rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: $cta-padding-md 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: $cta-padding-sm 0;
+  }
+}

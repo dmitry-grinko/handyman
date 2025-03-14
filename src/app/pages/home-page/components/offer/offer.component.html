@@ -1,0 +1,36 @@
+<!-- Offer Section -->
+<section class="offer-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Service Cards -->
+      <div class="col-12">
+        <div class="service-cards">
+          <!-- Service Card Items -->
+          <div *ngFor="let section of sections; let i = index"
+               class="service-card"
+               [class.active]="activeSection === i"
+               (click)="setActiveSection(i)">
+            <div class="icon-wrapper">
+              <i class="bi" [class.bi-chat-square-heart]="i === 0"
+                         [class.bi-shield-check]="i === 1"
+                         [class.bi-truck]="i === 2"></i>
+            </div>
+            <h3>{{ section.title }}</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Title -->
+      <div class="col-12">
+        <app-section-title [data]="titleData"></app-section-title>
+      </div>
+
+      <!-- Offer Description -->
+      <div class="col-12 col-lg-8 text-center">
+        <p class="offer-description">
+          {{ sections[activeSection].description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

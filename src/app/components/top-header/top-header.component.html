@@ -1,0 +1,24 @@
+<div class="top-header">
+  <div class="container">
+    <div class="contact-info">
+      <div class="contact-item">
+        <i class="fa-solid fa-phone"></i>
+        <a [href]="'tel:' + data.phone">{{data.phone}}</a>
+      </div>
+      <div class="contact-item">
+        <i class="fa-solid fa-envelope"></i>
+        <a [href]="'mailto:' + data.email">{{data.email}}</a>
+      </div>
+      <div class="contact-item">
+        <i class="fa-regular fa-clock"></i>
+        <span>{{data.workHours}}</span>
+      </div>
+    </div>
+    <div class="social-links">
+      <a *ngFor="let icon of data.icons" [href]="icon.link" class="social-link" target="_blank">
+        <i [class]="icon.icon"></i>
+      </a>
+    </div>
+  </div>
+</div>
+

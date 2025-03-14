@@ -1,0 +1,13 @@
+<!-- Contact Item Container -->
+<div class="contact-item" *ngIf="contactItemData">
+  <!-- Icon Container -->
+  <div class="contact-icon">
+    <fa-icon [icon]="contactItemData.icon" style="color: red"></fa-icon>
+  </div>
+  
+  <!-- Contact Information -->
+  <div class="contact-info">
+    <div class="label">{{ contactItemData.label }}</div>
+    <div class="value">{{ contactItemData.value }}</div>
+  </div>
+</div>

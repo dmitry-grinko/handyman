@@ -1,0 +1,82 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
+
+// Component variables
+$icon-size: 14px;
+
+.top-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eeeeee;
+  
+  .container {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: $text-light;
+      @include body-small;
+
+      i {
+        color: $text-light;
+        font-size: $icon-size;
+      }
+
+      a {
+        color: $text-light;
+        text-decoration: none;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .social-link {
+      color: $text-light;
+      @include body-small;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        color: $secondary-color;
+      }
+
+      i {
+        width: $icon-size;
+        text-align: center;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    display: none;
+  }
+}
+
+// Adjust main header position
+:host-context(.app-root) {
+  & + .header {
+    top: $top-header-height;
+  }
+}

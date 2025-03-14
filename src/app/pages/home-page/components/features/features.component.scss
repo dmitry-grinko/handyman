@@ -1,0 +1,105 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+.features {
+  background-color: $white;
+
+  .section-title {
+    @include section-title;
+  }
+
+  .title-underline {
+    width: 50px;
+    height: 3px;
+    background-color: $primary-color;
+    margin: 0 auto;
+  }
+
+  .feature-item {
+    padding: 1.5rem;
+    transition: all 0.1s ease;
+
+    &:hover {
+      .icon-circle {
+        background-color: $primary-color;
+        border-color: $primary-color;
+
+        svg {
+          color: $white;
+        }
+
+        &::after {
+          background-color: $primary-color;
+        }
+      }
+    }
+
+    .icon-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 1px solid $border-color;
+      @include flex-center;
+      margin: 0 auto;
+      transition: all 0.1s ease;
+      position: relative;
+      background-color: $white;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 25px;
+        background-color: $border-color;
+      }
+
+      svg {
+        width: 45px;
+        height: 45px;
+        color: $primary-color;
+        transition: all 0.1s ease;
+        stroke-linecap: round;
+      }
+    }
+
+    .feature-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1.5rem 0 1rem;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: $text-light;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .features {
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .feature-item {
+      margin-bottom: 2rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+  .features {
+    .section-title {
+      font-size: 1.75rem;
+    }
+  }
+}

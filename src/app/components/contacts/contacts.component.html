@@ -1,4 +1,4 @@
-<div class="contacts-section">
+<div class="contacts-section" *ngIf="theme" [class]="{'red-bg': bgColor === 'red', 'white-bg': bgColor === 'white'}">
   <div class="contacts-grid">
     <div class="contact-item" *ngFor="let item of contactItemData">
       <app-contact-item [contactItemData]="item"></app-contact-item>

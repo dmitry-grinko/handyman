@@ -3,7 +3,6 @@
 @use "../../../styles/mixins" as *;
 
 .contacts-section {
-  background-color: $primary-color;
   width: 100%;
   height: 146px;
   padding: 1.5rem 0;
@@ -32,4 +31,12 @@
       gap: 1rem;
     }
   }
+}
+
+.contacts-section.red-bg {
+  background-color: $primary-color;
+}
+
+.contacts-section.white-bg {
+  background-color: $white;
 }

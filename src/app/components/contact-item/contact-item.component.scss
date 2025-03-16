@@ -21,8 +21,8 @@
 .contact-icon {
   background-color: $white;
   border-radius: 50%;
-  width: 4rem;
-  height: 4rem;
+  width: 5rem;
+  height: 5rem;
   @include flex-center;
   flex-shrink: 0;
   
@@ -46,7 +46,6 @@
   
   .label,
   .value {
-    color: $white;
     font-family: $font-family-base;
     font-size: $font-size-base;
     line-height: $line-height-normal;
@@ -65,3 +64,24 @@
   }
 }
 
+.contact-info.white-text {
+  .label,
+  .value {
+    color: $white;
+  }
+}
+
+.contact-info.black-text {
+  .label,
+  .value {
+    color: $text-dark;
+  }
+}
+
+.contact-icon.border-red {
+  border: 1px solid $primary-color;
+}
+
+.contact-icon.border-gray {
+  border: 1px solid $border-color;
+}

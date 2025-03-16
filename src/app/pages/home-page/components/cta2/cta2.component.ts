@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { BigButtonComponent } from '../big-button/big-button.component';
+import { BigButtonComponent } from '../../../../components/big-button/big-button.component';
 import { ContentService } from '../../../../services/content.service';
 import { CTA2Content } from '../../../../interfaces/content.interfaces';
 import { Router } from '@angular/router';

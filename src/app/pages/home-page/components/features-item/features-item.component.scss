@@ -20,8 +20,8 @@ $icon-size-sm: 44px;
     margin-bottom: 2.75rem;
 
     .icon-circle {
-      width: 160px;
-      height: 160px;
+      width: 140px;
+      height: 140px;
       background-color: transparent;
       border-radius: 50%;
       display: flex;
@@ -51,9 +51,9 @@ $icon-size-sm: 44px;
   }
 
   .feature-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
+    font-family: $font-family-heading;
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
     margin-bottom: 1rem;
     color: $text-dark;
     text-transform: uppercase;
@@ -71,12 +71,12 @@ $icon-size-sm: 44px;
 
   .feature-description {
     color: $text-light;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 0.9375rem;
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
     line-height: 1.7;
     margin: 0 auto;
     max-width: 85%;
-    font-weight: 400;
   }
 }
 

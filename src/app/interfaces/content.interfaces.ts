@@ -25,9 +25,11 @@ export interface CopyrightContent {
 }
 
 export interface ContactContent {
-  icon: 'faPhone' | 'faEnvelope' | 'faLocation';
+  icon: 'faPhone' | 'faEnvelope' | 'faLocation' | 'faClock';
   label: string;
   value: string;
+  whiteText: boolean;
+  borderColor: string;
 }
 
 export interface SocialMediaLink {
@@ -153,3 +155,8 @@ export interface ServicesContent {
   serviceItems: ServiceItemData[];
   buttonText: string;
 } 
+
+export interface ContactFormData {
+  description: string;
+  buttonText: string;
+}

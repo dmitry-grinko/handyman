@@ -9,9 +9,9 @@ $image-height-md: 400px;
 $image-height-sm: 300px;
 
 .about-section {
-  @include section-padding;
   background-color: $white;
   overflow: hidden;
+  @include section-padding;
 
   .about-content {
     display: grid;
@@ -94,7 +94,7 @@ $image-height-sm: 300px;
 
 .img-fluid {
   width: 100%;
-  max-width: 450px;
+  max-width: 480px;
   height: auto;
 }
 

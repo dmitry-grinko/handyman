@@ -15,7 +15,8 @@ import {
   FeaturesContent,
   ProjectsContent,
   ProjectContent,
-  HeaderContent
+  HeaderContent,
+  ContactFormData
 } from '../interfaces/content.interfaces';
 
 @Injectable({
@@ -153,24 +154,62 @@ export class ContentService {
     };
   }
 
-  getContactContent(): ContactContent[] {
-    return [
-      {
-        icon: 'faPhone',
-        label: 'Phone',
-        value: this.phone
-      },
-      {
-        icon: 'faEnvelope',
-        label: 'Email',
-        value: this.email
-      },
-      {
-        icon: 'faLocation',
-        label: 'Location',
-        value: '272 Linden Avenue, Winter Park, FL 32789'
-      }
-    ];
+  getContactContentForRedTheme(): { bgColor: string, items: ContactContent[] } {
+    return {
+      bgColor: 'red',
+      items: [
+        {
+          icon: 'faPhone',
+          label: 'Phone',
+          value: this.phone,
+          whiteText: true,
+          borderColor: 'red'
+        },
+        {
+          icon: 'faEnvelope',
+          label: 'Email',
+          value: this.email,
+          whiteText: true,
+          borderColor: 'red'
+        },
+        {
+          icon: 'faLocation',
+          label: '',
+          value: '272 Linden Avenue, Winter Park, FL 32789',
+          whiteText: true,
+          borderColor: 'red'
+        }
+      ]
+    };
+  }
+
+  getContactContentForWhiteTheme(): { bgColor: string, items: ContactContent[] } {
+    return {
+      bgColor: 'white',
+      items: [
+        {
+          icon: 'faLocation',
+          label: '',
+          value: '272 Linden Avenue, Winter Park, FL 32789',
+          whiteText: false,
+          borderColor: 'gray'
+        },
+        {
+          icon: 'faPhone',
+          label: 'Phone',
+          value: this.phone,
+          whiteText: false,
+          borderColor: 'gray'
+        },
+        {
+          icon: 'faClock',
+          label: 'Work Hours',
+          value: 'Mon - Fri: 9 AM - 5 PM',
+          whiteText: false,
+          borderColor: 'gray'
+        }
+      ]
+    };
   }
 
   getFooterContent(): FooterContent {
@@ -297,19 +336,19 @@ export class ContentService {
       },
       featuresItems: [
         {
-          title: 'OVER 10 YEARS EXPERIENCE',
+          title: 'Experienced Team',
           icon: 'home',
-          description: 'We provide exceptional craftsmanship, expert knowledge, and competitive pricing to ensure top-quality renovations for homes and businesses.'
+          description: 'Over 10 years in the renovation and construction industry.'
         },
         {
-          title: 'BEST MATERIALS',
+          title: 'High-Quality Materials',
           icon: 'tool',
-          description: 'Rated 5 stars by 200+ happy clients for exceptional craftsmanship and service.'
+          description: 'RWe use only the best materials to ensure long-lasting results.'
         },
         {
-          title: 'PROFESSIONAL STANDARDS',
+          title: 'Affordable Pricing',
           icon: 'briefcase',
-          description: 'Our team consists of certified professionals with expertise in modern renovation techniques'
+          description: 'Transparent and competitive pricing for all projects.'
         }
       ]
     };
@@ -372,5 +411,13 @@ export class ContentService {
       title: 'OUR SERVICES'
     };
   }
+
+  getContactFormData(): ContactFormData {
+    return {
+      description: 'We will contact you within one business day.',
+      buttonText: 'SEND MESSAGE'
+    };
+  }
+
 }
 

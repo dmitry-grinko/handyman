@@ -6,6 +6,8 @@ export interface ContactItemData {
   icon: IconDefinition;
   label: string;
   value: string;
+  whiteText: boolean;
+  borderColor: string;
 }
 
 @Component({

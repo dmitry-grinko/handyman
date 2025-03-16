@@ -1,0 +1,59 @@
+<div class="contact-form container py-5" *ngIf="contactFormData">
+  <form>
+    <div class="row g-4">
+      <div class="col-12 col-lg-6">
+        <div class="form-inputs d-flex flex-column gap-4">
+          <div class="form-floating">
+            <input 
+              type="text" 
+              class="form-control" 
+              id="nameInput" 
+              placeholder=" "
+              required
+            >
+            <label for="nameInput">Your Name *</label>
+          </div>
+
+          <div class="form-floating">
+            <input 
+              type="email" 
+              class="form-control" 
+              id="emailInput" 
+              placeholder=" "
+              required
+            >
+            <label for="emailInput">Your Email *</label>
+          </div>
+
+          <div class="form-floating">
+            <input 
+              type="tel" 
+              class="form-control" 
+              id="phoneInput" 
+              placeholder=" "
+            >
+            <label for="phoneInput">Your Phone</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-6">
+        <div class="form-floating h-100">
+          <textarea 
+            class="form-control h-100" 
+            id="messageInput" 
+            placeholder=" "
+            required
+            style="min-height: 200px"
+          ></textarea>
+          <label for="messageInput">Message *</label>
+        </div>
+      </div>
+
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <p class="text-muted mb-0">{{ contactFormData.description }}</p>
+        <app-big-button [buttonText]="contactFormData.buttonText"></app-big-button>
+      </div>
+    </div>
+  </form>
+</div>

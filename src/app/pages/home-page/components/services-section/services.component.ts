@@ -1,5 +1,5 @@
 import { Component, ViewChildren, QueryList, ElementRef, AfterViewInit } from '@angular/core';
-import { BigButtonComponent } from '../big-button/big-button.component';
+import { BigButtonComponent } from '../../../../components/big-button/big-button.component';
 import { ServiceItemComponent, ServiceItemData } from '../../../../components/service-item/service-item.component';
 import { SectionTitleComponent, SectionTitleData } from '../section-title/section-title.component';
 import { NgFor } from '@angular/common';

@@ -1,55 +1,58 @@
 <!-- Footer Component -->
-<div class="footer-container container py-5">
-  <div class="row">
-    <!-- About Us Section -->
-    <div class="col-lg-3 col-md-6 mb-4">
-      <h3 class="section-title">About Us</h3>
-      <p class="about-text">
-        {{ footerContent.about.description }}
-      </p>
-      <div class="social-links">
-        <a *ngFor="let social of footerContent.about.socialLinks"
-           [href]="social.link" 
-           class="social-link">
-           <i [class]="social.icon"></i>
-        </a>
+<div class="footer-bg">
+  <div class="footer-container container py-5">
+    <div class="row">
+      <!-- About Us Section -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h3 class="section-title">About Us</h3>
+        <p class="about-text">
+          {{ footerContent.about.description }}
+        </p>
+        <div class="social-links">
+          <a *ngFor="let social of footerContent.about.socialLinks"
+             [href]="social.link" 
+             class="social-link">
+             <i [class]="social.icon"></i>
+          </a>
+        </div>
       </div>
-    </div>
-
-    <!-- Our Services Section -->
-    <div class="col-lg-3 col-md-6 mb-4">
-      <h3 class="section-title">Our Services</h3>
-      <ul class="services-list">
-        <li *ngFor="let service of footerContent.services">
-          <i class="fas {{ service.icon }}"></i> {{ service.name }}
-        </li>
-      </ul>
-    </div>
-
-    <!-- Categories Section -->
-    <div class="col-lg-3 col-md-6 mb-4">
-      <h3 class="section-title">Categories</h3>
-      <div class="categories-grid">
-        <a *ngFor="let category of footerContent.categories" 
-           [href]="category.link" 
-           class="category-tag">{{ category.name }}</a>
+  
+      <!-- Our Services Section -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h3 class="section-title">Our Services</h3>
+        <ul class="services-list">
+          <li *ngFor="let service of footerContent.services">
+            <i class="fas {{ service.icon }}"></i> {{ service.name }}
+          </li>
+        </ul>
       </div>
-    </div>
-
-    <!-- Latest Posts Section -->
-    <div class="col-lg-3 col-md-6 mb-4">
-      <h3 class="section-title">Latest Posts</h3>
-      <div class="latest-posts">
-        <div *ngFor="let post of footerContent.latestPosts" class="post-item d-flex mb-3">
-          <div class="post-image">
-            <img [src]="post.image" [alt]="post.title" class="img-fluid">
-          </div>
-          <div class="post-content">
-            <h4 class="post-title">{{ post.title }}</h4>
-            <p class="post-date">{{ post.date }}</p>
+  
+      <!-- Categories Section -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h3 class="section-title">Categories</h3>
+        <div class="categories-grid">
+          <a *ngFor="let category of footerContent.categories" 
+             [href]="category.link" 
+             class="category-tag">{{ category.name }}</a>
+        </div>
+      </div>
+  
+      <!-- Latest Posts Section -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <h3 class="section-title">Latest Posts</h3>
+        <div class="latest-posts">
+          <div *ngFor="let post of footerContent.latestPosts" class="post-item d-flex mb-3">
+            <div class="post-image">
+              <img [src]="post.image" [alt]="post.title" class="img-fluid">
+            </div>
+            <div class="post-content">
+              <h4 class="post-title">{{ post.title }}</h4>
+              <p class="post-date">{{ post.date }}</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+

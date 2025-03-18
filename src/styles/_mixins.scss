@@ -42,11 +42,11 @@
     }
   }
   
-  @mixin heading-3 {
+  @mixin heading-4 {
     font-family: $font-family-base;
-    font-size: $font-size-2xl;
-    font-weight: $font-weight-bold;
-    line-height: $line-height-tight;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    line-height: $line-height-normal;
     letter-spacing: -0.01em;
     
     @include media-breakpoint-down(md) {
@@ -71,7 +71,7 @@
   
   @mixin body {
     font-family: $font-family-base;
-    font-size: $font-size-base;
+    font-size: $font-size-sm;
     font-weight: $font-weight-normal;
     line-height: $line-height-relaxed;
   }
@@ -82,7 +82,14 @@
     font-weight: $font-weight-normal;
     line-height: $line-height-normal;
   }
-  
+
+  @mixin body-xsmall {
+    font-family: $font-family-base;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-normal;
+    line-height: $line-height-normal;
+  }
+
   @mixin caption {
     font-family: $font-family-base;
     font-size: $font-size-xs;

@@ -113,6 +113,7 @@ $nav-button-size: 56px;
 
   // Testimonial content
   .testimonial-text {
+    font-family: $font-family-heading;
     font-size: $font-size-xl;
     font-weight: $font-weight-light;
     line-height: $line-height-relaxed;
@@ -124,7 +125,7 @@ $nav-button-size: 56px;
   }
 
   .yellow-stripe {
-    width: 40px;
+    width: 45px;
     height: 2px;
     background-color: $primary-color;
     margin: 0 auto 25px;
@@ -257,7 +258,7 @@ $nav-button-size: 56px;
     border: 1px solid $white;
     border-radius: 50%;
     @include flex-center;
-    margin: 0 auto 2rem;
+    margin: 0 auto 7rem;
     
     i {
       font-size: 2rem;

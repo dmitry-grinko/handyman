@@ -3,9 +3,9 @@
 
 
 .partners {
-  @include section-padding;
   background-color: $gray-light;
   position: relative;
+  @include section-padding;
 
   &__title {
     @include section-title;

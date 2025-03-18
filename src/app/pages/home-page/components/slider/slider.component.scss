@@ -2,9 +2,9 @@
 @use "../../../../../styles/mixins" as *;
 
 // Component variables
-$slider-height: 70vh;
-$slider-height-md: 70vh;
-$slider-height-sm: 60vh;
+$slider-height: calc(100vh - $header-height);
+$slider-height-md: calc(100vh - $header-height);
+$slider-height-sm: calc(100vh - $header-height);
 $nav-arrow-size: 50px;
 $nav-arrow-size-md: 40px;
 $indicator-size: 10px;

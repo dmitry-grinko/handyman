@@ -51,11 +51,11 @@ $top-header-height: 40px;
     }
 
     .navbar-brand {
-      @include heading-3;
       color: $secondary-color;
       text-decoration: none;
       padding: 0;
       margin-right: 50px;
+      @include heading-3;
     }
 
     .navbar-toggler {

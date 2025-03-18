@@ -57,9 +57,9 @@ $image-height-sm: 300px;
 
   .about-text {
     .section-title {
-      @include section-title;
       text-align: left;
       margin-bottom: 2rem;
+      @include section-title;
 
       &::after {
         left: 0;

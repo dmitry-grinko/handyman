@@ -2,9 +2,9 @@
 @use "../../../../../styles/mixins" as *;
 
 // Component variables
-$slider-height: calc(100vh - $header-height);
-$slider-height-md: calc(100vh - $header-height);
-$slider-height-sm: calc(100vh - $header-height);
+$slider-height: calc(100% - $header-height);
+$slider-height-md: calc(100% - $header-height);
+$slider-height-sm: calc(100% - $header-height);
 $nav-arrow-size: 50px;
 $nav-arrow-size-md: 40px;
 $indicator-size: 10px;
@@ -35,20 +35,27 @@ $indicator-size: 10px;
     .carousel-indicators {
       bottom: 2rem;
       margin: 0;
-      z-index: 3;
+      z-index: 15;
       
-      li {
-        width: $indicator-size;
-        height: $indicator-size;
+      button {
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
-        background-color: rgba($white, 0.5);
+        background-color: #dee2e6;
+        border: 0;
         margin: 0 5px;
-        border: none;
-        opacity: 0.8;
-        
+        padding: 0;
+        transition: all 0.1s ease;
+        opacity: 0.5;
+
         &.active {
-          background-color: $white;
+          background-color: $primary-color;
+          transform: scale(1.2);
           opacity: 1;
+        }
+
+        &:hover {
+          opacity: 0.8;
         }
       }
     }

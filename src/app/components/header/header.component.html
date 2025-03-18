@@ -23,7 +23,8 @@
             <a class="nav-link" 
                [routerLink]="item.link" 
                routerLinkActive="active" 
-               [routerLinkActiveOptions]="{exact: item.exact || false}">
+               [routerLinkActiveOptions]="{exact: item.exact || false}"
+               (click)="isMobile ? isMenuCollapsed = true : null">
               {{ item.text }}
             </a>
           </li>

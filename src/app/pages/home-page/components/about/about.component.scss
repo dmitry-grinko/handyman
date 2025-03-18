@@ -11,7 +11,19 @@ $image-height-sm: 300px;
 .about-section {
   background-color: $white;
   overflow: hidden;
-  @include section-padding;
+  padding: 100px 0; // Default padding for desktop
+
+  @include media-breakpoint-down(lg) {
+    padding: 80px 0;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 60px 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    padding: 40px 0;
+  }
 
   .about-content {
     display: grid;
@@ -93,37 +105,63 @@ $image-height-sm: 300px;
 }
 
 .img-fluid {
-  width: 100%;
-  max-width: 480px;
+  max-width: 100%;
   height: auto;
+}
+
+.shadow-effect {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .about-image-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px;
+  
+  img {
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    transition: all 0.3s ease;
+    
+    @include media-breakpoint-down(xl) {
+      max-width: 420px;
+    }
+    
+    @include media-breakpoint-down(lg) {
+      max-width: 380px;
+    }
+    
+    @include media-breakpoint-down(md) {
+      max-width: 320px;
+    }
+    
+    @include media-breakpoint-down(sm) {
+      max-width: 280px;
+    }
+  }
 }
 
 // Responsive styles
 @media (max-width: 991.98px) {
   .about-section {
-    padding: 60px 0;
-
     .section-title {
       font-size: 2rem;
     }
 
     .about-image-container {
-      max-width: 400px;
-      margin-bottom: 2rem;
+      margin: 0 auto 2rem;
+    }
+    
+    .features-list {
+      padding: 0 15px;
     }
   }
 }
 
 @media (max-width: 767.98px) {
   .about-section {
-    padding: 40px 0;
-
     .section-title {
       font-size: 1.75rem;
     }
@@ -148,6 +186,21 @@ $image-height-sm: 300px;
           }
         }
       }
+    }
+  }
+}
+
+// Add specific spacing for mobile view
+@media (max-width: 575.98px) {
+  .about-section {
+    padding: 30px 0;
+    
+    .row {
+      margin: 0;
+    }
+    
+    .features-list {
+      padding: 0 10px;
     }
   }
 }

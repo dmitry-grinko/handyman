@@ -73,6 +73,14 @@
     > textarea.form-control {
       min-height: 200px;
       resize: none;
+
+      @include media-breakpoint-down(lg) {
+        min-height: 150px;
+      }
+
+      @include media-breakpoint-down(md) {
+        min-height: 120px;
+      }
     }
   }
 
@@ -103,21 +111,26 @@
     font-size: $font-size-sm;
     font-family: $font-family-base;
     font-weight: $font-weight-normal;
-  }
-}
-
-// Responsive adjustments
-@include media-breakpoint-down(lg) {
-  .contact-form {
-    .form-floating > textarea.form-control {
-      min-height: 150px;
+    
+    @include media-breakpoint-down(md) {
+      margin-bottom: 1rem !important;
+      text-align: center;
     }
   }
 }
 
+// Responsive adjustments
 @include media-breakpoint-down(sm) {
   .contact-form {
-    padding: 1.5rem 0;
+    padding: 1.5rem 0.75rem !important;
+    
+    .form-floating > .form-control {
+      padding: 1rem 0.75rem;
+    }
+    
+    .form-floating > label {
+      padding: 1rem 0.75rem;
+    }
   }
 }
 

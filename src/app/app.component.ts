@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ViewportScroller } from '@angular/common';
+import { Component, AfterViewInit } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/internal/operators/filter';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,4 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  title = 'rhconstructs';
-}
+export class AppComponent {}

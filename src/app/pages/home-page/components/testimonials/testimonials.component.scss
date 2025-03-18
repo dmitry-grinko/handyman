@@ -6,12 +6,13 @@
 $testimonial-overlay-color: rgba(0, 0, 0, 0.5);
 $icon-size: 32px;
 $nav-button-size: 56px;
+$nav-button-size-mobile: 48px;
 
 .testimonials-section {
   position: relative;
-  padding-top: 100px;
+  padding: 100px 0;
   width: 100%;
-  height: 600px;
+  min-height: 600px;
   @include flex-center;
   overflow: hidden;
 
@@ -28,6 +29,11 @@ $nav-button-size: 56px;
     z-index: -2;
   }
 
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
   // Content container
   .testimonial-container {
     max-width: 800px;
@@ -36,99 +42,58 @@ $nav-button-size: 56px;
     text-align: center;
     color: $white;
     position: relative;
-    z-index: 1;
+    height: 400px; // Increased height to accommodate content
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; // Align to start to leave room for all elements
+    padding-top: 30px; // Add padding at top
   }
 
-  // Quote icon
-  .quote-icon {
-    margin-bottom: 50px;
-    @include flex-center;
-    position: relative;
-    
-    .icon-wrapper {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      @include flex-center;
-      border: 1px solid rgba($white, 0.9);
-      background: transparent;
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -25px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 3px;
-        height: 3px;
-        border-radius: 50%;
-        background-color: rgba($white, 0.9);
-      }
-
-      svg {
-        width: $icon-size;
-        height: $icon-size;
-        color: $white;
-        stroke-width: 1;
-        opacity: 0.9;
-        transform: translate(-1px, -1px);
-      }
-    }
-  }
-
-  // Chat bubble icon
-  .chat-bubble-icon {
+  // Testimonial icon
+  .testimonial-icon {
     width: 80px;
     height: 80px;
-    border: 2px solid $white;
+    border: 1px solid $white;
     border-radius: 50%;
     @include flex-center;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem; // Reduced margin to give more space to text
     position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 2px;
-      height: 15px;
-      background-color: $white;
-    }
-
-    svg {
-      width: 40px;
-      height: 40px;
+    flex-shrink: 0; // Prevent icon from shrinking
+    
+    i {
+      font-size: 2rem;
       color: $white;
-      
-      path {
-        stroke: currentColor;
-        stroke-width: 2;
-        fill: none;
-      }
+      font-weight: 100;
     }
   }
 
   // Testimonial content
+  .testimonial-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+  }
+
   .testimonial-text {
     font-family: $font-family-heading;
     font-size: $font-size-xl;
     font-weight: $font-weight-light;
     line-height: $line-height-relaxed;
     color: $white;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem; // Reduced to save space
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    max-height: 180px; // Fixed height for desktop
+    overflow: hidden;
   }
 
   .yellow-stripe {
     width: 45px;
     height: 2px;
     background-color: $primary-color;
-    margin: 0 auto 25px;
+    margin: 0 auto 20px; // Reduced to save space
   }
 
   // Author info
@@ -151,7 +116,7 @@ $nav-button-size: 56px;
     }
   }
 
-  // Navigation arrows
+  // Navigation arrows - Desktop
   .carousel-navigation {
     position: absolute;
     width: 90%;
@@ -188,20 +153,51 @@ $nav-button-size: 56px;
 
       &.prev-btn {
         left: -70px;
-        
+      }
+
+      &.next-btn {
+        right: -70px;
+      }
+
+      // Hover effect only for desktop
+      @media (hover: hover) {
         .circle-button:hover {
           background-color: $primary-color;
           border-color: $primary-color;
         }
       }
+    }
+  }
 
-      &.next-btn {
-        right: -70px;
-
-        .circle-button:hover {
-          background-color: $primary-color;
-          border-color: $primary-color;
-        }
+  // Navigation buttons - Mobile/Tablet
+  .nav-btn-circle {
+    width: $nav-button-size-mobile;
+    height: $nav-button-size-mobile;
+    border-radius: 50%;
+    @include flex-center;
+    background: transparent;
+    border: 1.5px solid rgba($white, 0.9);
+    padding: 0;
+    cursor: pointer;
+    
+    i {
+      font-size: 1.1rem;
+      color: $white;
+    }
+    
+    // Disable hover effects on touch devices
+    @media (hover: none) {
+      &:active, &:focus {
+        background-color: transparent;
+        border-color: rgba($white, 0.9);
+      }
+    }
+    
+    // Only apply hover effects on non-touch devices
+    @media (hover: hover) {
+      &:hover {
+        background-color: $primary-color;
+        border-color: $primary-color;
       }
     }
   }
@@ -213,75 +209,9 @@ $nav-button-size: 56px;
     .carousel-control-next {
       display: none;
     }
-  }
 
-  // Stacked circle icons
-  .icon-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 3rem;
-    
-    .circle-icon {
-      width: 70px;
-      height: 70px;
-      border: 2px solid $white;
-      border-radius: 50%;
-      @include flex-center;
-      background: transparent;
-
-      svg {
-        width: 30px;
-        height: 30px;
-        color: $white;
-      }
-    }
-
-    .connector {
-      width: 2px;
-      height: 20px;
-      background-color: $white;
-    }
-
-    .dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background-color: $white;
-      margin-top: 10px;
-    }
-  }
-
-  .testimonial-icon {
-    width: 80px;
-    height: 80px;
-    border: 1px solid $white;
-    border-radius: 50%;
-    @include flex-center;
-    margin: 0 auto 7rem;
-    
-    i {
-      font-size: 2rem;
-      color: $white;
-      font-weight: 100;
-    }
-    
-    @include media-breakpoint-down(md) {
-      width: 70px;
-      height: 70px;
-      
-      i {
-        font-size: 1.75rem;
-      }
-    }
-    
-    @include media-breakpoint-down(sm) {
-      width: 60px;
-      height: 60px;
-      
-      i {
-        font-size: 1.5rem;
-      }
+    .carousel-inner {
+      padding-bottom: 20px;
     }
   }
 }
@@ -289,176 +219,84 @@ $nav-button-size: 56px;
 /* Responsive Styles */
 @include media-breakpoint-down(md) {
   .testimonials-section {
-    height: 500px;
+    padding: 80px 0;
+    min-height: 500px;
+
+    .testimonial-container {
+      height: 350px; // Adjusted height for tablet
+      padding-top: 20px;
+    }
 
     .testimonial-text {
-      @include heading-3;
+      font-size: $font-size-lg;
       padding: 0 30px;
+      max-height: 160px; // Adjusted for tablet
     }
 
-    .quote-icon {
-      margin-bottom: 40px;
-
-      .icon-wrapper {
-        width: 60px;
-        height: 60px;
-
-        svg {
-          width: 24px;
-          height: 24px;
-        }
-
-        &::after {
-          bottom: -20px;
-        }
-      }
-    }
-
-    .chat-bubble-icon {
+    .testimonial-icon {
       width: 70px;
       height: 70px;
-      margin-bottom: 1.75rem;
-
-      svg {
-        width: 35px;
-        height: 35px;
-      }
-    }
-
-    .carousel-navigation {
-      width: 95%;
-
-      .nav-btn {
-        .circle-button {
-          width: 50px;
-          height: 50px;
-
-          svg {
-            width: 22px;
-            height: 22px;
-          }
-        }
-
-        &.prev-btn { left: -25px; }
-        &.next-btn { right: -25px; }
+      margin-bottom: 2rem; // Further reduced for tablet
+      
+      i {
+        font-size: 1.75rem;
       }
     }
 
     .yellow-stripe {
       width: 35px;
-      margin-bottom: 20px;
-    }
-
-    .icon-stack {
-      margin-bottom: 2.5rem;
-      
-      .circle-icon {
-        width: 60px;
-        height: 60px;
-
-        svg {
-          width: 25px;
-          height: 25px;
-        }
-      }
-
-      .connector {
-        height: 15px;
-      }
-
-      .dot {
-        width: 3px;
-        height: 3px;
-        margin-top: 8px;
-      }
+      margin-bottom: 15px;
     }
   }
 }
 
 @include media-breakpoint-down(sm) {
   .testimonials-section {
-    height: 450px;
+    padding: 60px 0;
+    min-height: 450px;
+
+    .testimonial-container {
+      height: 330px; // Adjusted height for mobile
+      padding-top: 15px;
+    }
 
     .testimonial-text {
-      @include body-large;
-      padding: 0 20px;
+      font-size: $font-size-base;
+      padding: 0 15px;
+      max-height: 140px; // Adjusted for mobile
     }
 
-    .quote-icon {
-      margin-bottom: 35px;
-
-      .icon-wrapper {
-        width: 50px;
-        height: 50px;
-
-        svg {
-          width: 20px;
-          height: 20px;
-        }
-      }
-    }
-
-    .chat-bubble-icon {
+    .testimonial-icon {
       width: 60px;
       height: 60px;
-      margin-bottom: 1.5rem;
-
-      svg {
-        width: 30px;
-        height: 30px;
-      }
-
-      &::after {
-        height: 12px;
-        bottom: -12px;
-      }
-    }
-
-    .carousel-navigation {
-      width: 100%;
-
-      .nav-btn {
-        .circle-button {
-          width: 44px;
-          height: 44px;
-
-          svg {
-            width: 20px;
-            height: 20px;
-          }
-        }
-
-        &.prev-btn { left: 10px; }
-        &.next-btn { right: 10px; }
+      margin-bottom: 1.5rem; // Further reduced for mobile
+      
+      i {
+        font-size: 1.5rem;
       }
     }
 
     .yellow-stripe {
       width: 30px;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
-    .icon-stack {
-      margin-bottom: 2rem;
+    .testimonial-author {
+      .author-name {
+        font-size: 14px;
+      }
+
+      .author-position {
+        font-size: 12px;
+      }
+    }
+    
+    .nav-btn-circle {
+      width: 40px;
+      height: 40px;
       
-      .circle-icon {
-        width: 50px;
-        height: 50px;
-
-        svg {
-          width: 20px;
-          height: 20px;
-        }
-      }
-
-      .connector {
-        height: 12px;
-      }
-
-      .dot {
-        width: 3px;
-        height: 3px;
-        margin-top: 6px;
+      i {
+        font-size: 0.9rem;
       }
     }
   }

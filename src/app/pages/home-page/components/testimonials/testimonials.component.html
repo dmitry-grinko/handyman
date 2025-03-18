@@ -1,38 +1,61 @@
 <div class="testimonials-section">
-  <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="true" [pauseOnFocus]="true" [showNavigationArrows]="false" [showNavigationIndicators]="false">
-    <ng-template ngbSlide *ngFor="let testimonial of testimonials">
-      <div class="testimonial-container">
-        <div class="testimonial-icon">
-          <i class="fa-regular fa-comments"></i>
-        </div>
-        <div class="testimonial-content">
-          <blockquote class="testimonial-text">
-            "{{testimonial.text}}"
-          </blockquote>
-          <div class="yellow-stripe"></div>
-          <div class="testimonial-author">
-            <h4 class="author-name">{{testimonial.authorName}}</h4>
-            <p class="author-position">{{testimonial.authorPosition}}</p>
+  <div class="container">
+    <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="true" [pauseOnFocus]="true" [showNavigationArrows]="false" [showNavigationIndicators]="false">
+      <ng-template ngbSlide *ngFor="let testimonial of testimonials">
+        <div class="testimonial-container">
+          <div class="testimonial-icon">
+            <i class="fa-regular fa-comments"></i>
+          </div>
+          <div class="testimonial-content">
+            <blockquote class="testimonial-text">
+              "{{testimonial.text}}"
+            </blockquote>
+            <div class="yellow-stripe"></div>
+            <div class="testimonial-author">
+              <h4 class="author-name">{{testimonial.authorName}}</h4>
+              <p class="author-position">{{testimonial.authorPosition}}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </ng-template>
-  </ngb-carousel>
-  
-  <div class="carousel-navigation">
-    <button class="nav-btn prev-btn" (click)="carousel.prev()">
-      <span class="circle-button">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
-      </span>
-    </button>
-    <button class="nav-btn next-btn" (click)="carousel.next()">
-      <span class="circle-button">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
-      </span>
-    </button>
+      </ng-template>
+    </ngb-carousel>
+    
+    <!-- Desktop Navigation (xl screens only) -->
+    <div class="carousel-navigation d-none d-xl-block">
+      <button class="nav-btn prev-btn" (click)="carousel.prev()">
+        <span class="circle-button">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L6 10L12 16" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+      </button>
+      <button class="nav-btn next-btn" (click)="carousel.next()">
+        <span class="circle-button">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 4L14 10L8 16" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+        </span>
+      </button>
+    </div>
+    
+    <!-- Tablet Navigation Buttons (visible on md and lg screens) -->
+    <div class="d-none d-md-flex d-xl-none justify-content-center mt-4">
+      <button class="nav-btn-circle mx-2" (click)="carousel.prev()">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="nav-btn-circle mx-2" (click)="carousel.next()">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Navigation Buttons (visible only on small screens) -->
+    <div class="d-flex d-md-none justify-content-center mt-4">
+      <button class="nav-btn-circle mx-2" (click)="carousel.prev()">
+        <i class="fa-solid fa-chevron-left"></i>
+      </button>
+      <button class="nav-btn-circle mx-2" (click)="carousel.next()">
+        <i class="fa-solid fa-chevron-right"></i>
+      </button>
+    </div>
   </div>
 </div>

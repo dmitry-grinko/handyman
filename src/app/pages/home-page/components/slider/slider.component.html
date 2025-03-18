@@ -1,7 +1,10 @@
 <ngb-carousel #carousel="ngbCarousel" [interval]="5000" [pauseOnHover]="true" [showNavigationIndicators]="true" [wrap]="true">
     <ng-template ngbSlide *ngFor="let slide of slides">
         <div class="slide-item">
-            <img [src]="slide.image" [alt]="slide.alt" class="slide-image" loading="lazy">
+            <picture>
+                <source media="(max-width: 767px)" [srcset]="slide.mobileImage">
+                <img [src]="slide.image" [alt]="slide.alt" class="slide-image" loading="lazy">
+            </picture>
         </div>
     </ng-template>
 </ngb-carousel>

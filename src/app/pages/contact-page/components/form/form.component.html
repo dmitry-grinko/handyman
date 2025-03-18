@@ -1,7 +1,7 @@
-<div class="contact-form container py-5" *ngIf="contactFormData">
+<div class="contact-form container py-5 px-md-3 px-lg-5" *ngIf="contactFormData">
   <form>
-    <div class="row g-4">
-      <div class="col-12 col-lg-6">
+    <div class="row g-4 gx-md-4">
+      <div class="col-12 col-lg-6 mb-3 mb-lg-0">
         <div class="form-inputs d-flex flex-column gap-4">
           <div class="form-floating">
             <input 
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div class="col-12 d-flex justify-content-between align-items-center">
+      <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 gap-md-0 mt-2 mt-md-3">
         <p class="text-muted mb-0">{{ contactFormData.description }}</p>
         <app-big-button [buttonText]="contactFormData.buttonText"></app-big-button>
       </div>

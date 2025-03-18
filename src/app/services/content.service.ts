@@ -25,24 +25,29 @@ import {
 export class ContentService {
   email: string = '';
   phone: string = '';
+  address: string = '';
+  workHours: string = '';
   socialMediaLinks: SocialMediaLink[] = [];
   projects: ProjectContent[] = [];
 
   constructor() { 
-    this.email = 'rhconstructs@gmail.com';
-    this.phone = '+380991234567';
+    this.email = 'rhconstructs@gmail.com'; // TODO: change to the correct email
+    this.phone = '(503) 709-7901';
+    this.address = 'Portland, Oregon';
+    this.workHours = 'Mon - Fri: 8 AM - 6 PM';
+
     this.socialMediaLinks = [
       {
         icon: 'fa-brands fa-facebook-f',
-        link: 'https://www.facebook.com'
+        link: 'https://www.facebook.com' // TODO: change to the correct facebook link
       },
       {
         icon: 'fa-brands fa-x-twitter',
-        link: 'https://www.twitter.com'
+        link: 'https://www.twitter.com' // TODO: change to the correct twitter link
       },
       {
         icon: 'fa-brands fa-instagram',
-        link: 'https://www.instagram.com'
+        link: 'https://www.instagram.com' // TODO: change to the correct instagram link
       }
     ];
 
@@ -86,7 +91,7 @@ export class ContentService {
     return {
       email: this.email,
       phone: this.phone,
-      workHours: 'Mon - Fri: 9 AM - 5 PM',
+      workHours: this.workHours,
       icons: this.socialMediaLinks,
     }
   }
@@ -113,14 +118,17 @@ export class ContentService {
     return [
       {
         image: 'slider_1.png',
+        mobileImage: 'slider_1_mobile.png',
         alt: 'Home improvement worker carrying materials'
       },
       {
-        image: 'slider_2.jpg',
+        image: 'slider_1.png',
+        mobileImage: 'slider_2_mobile.jpg',
         alt: 'Home renovation process'
       },
       {
-        image: 'slider_3.jpg',
+        image: 'slider_1.png',
+        mobileImage: 'slider_3_mobile.jpg',
         alt: 'Completed home improvement project'
       }
     ]
@@ -175,7 +183,7 @@ export class ContentService {
         {
           icon: 'faLocation',
           label: '',
-          value: '272 Linden Avenue, Winter Park, FL 32789',
+          value: this.address,
           whiteText: true,
           borderColor: 'red'
         }
@@ -190,7 +198,7 @@ export class ContentService {
         {
           icon: 'faLocation',
           label: '',
-          value: '272 Linden Avenue, Winter Park, FL 32789',
+          value: this.address,
           whiteText: false,
           borderColor: 'gray'
         },
@@ -204,7 +212,7 @@ export class ContentService {
         {
           icon: 'faClock',
           label: 'Work Hours',
-          value: 'Mon - Fri: 9 AM - 5 PM',
+          value: this.workHours,
           whiteText: false,
           borderColor: 'gray'
         }
@@ -256,7 +264,7 @@ export class ContentService {
   getServicesContent(): ServicesContent {
     return {
       sectionTitle: {
-        title: 'OUR SERVICES',
+        title: 'RH CONSTRUCTS',
         description: 'With over 10 years experience and real focus on customer satisfaction, you can rely on us for your next renovation, driveway sett or home repair. We provide a professional service for private and commercial customers.'
       },
       serviceItems: [
@@ -409,6 +417,18 @@ export class ContentService {
   getBreadcrumbsServicesPageData(): { title: string } {
     return {
       title: 'OUR SERVICES'
+    };
+  }
+
+  getBreadcrumbsOurTeamPageData(): { title: string } {
+    return {
+      title: 'OUR TEAM'
+    };
+  }
+
+  getBreadcrumbsContactPageData(): { title: string } {
+    return {
+      title: 'CONTACT US'
     };
   }
 

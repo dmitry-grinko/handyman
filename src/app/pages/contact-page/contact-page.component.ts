@@ -6,6 +6,8 @@ import { TopButtonComponent } from '../../components/top-button/top-button.compo
 import { MapComponent } from './components/map/map.component';
 import { FormComponent } from './components/form/form.component';
 import { ContactsComponent } from '../../components/contacts/contacts.component';
+import { BreadcrumbsComponent } from '../../components/breadcrumbs/breadcrumbs.component';
+import { ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'app-contact-page',
@@ -16,10 +18,17 @@ import { ContactsComponent } from '../../components/contacts/contacts.component'
     TopButtonComponent,
     MapComponent,
     FormComponent,
-    ContactsComponent
+    ContactsComponent,
+    BreadcrumbsComponent
   ],
   templateUrl: './contact-page.component.html',
   styleUrl: './contact-page.component.scss'
 })
 
-export class ContactPage {}
+export class ContactPage {
+  breadcrumbData: { title: string };
+
+  constructor(private contentService: ContentService) {
+    this.breadcrumbData = this.contentService.getBreadcrumbsContactPageData();
+  }
+}

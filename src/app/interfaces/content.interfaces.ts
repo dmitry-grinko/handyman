@@ -1,5 +1,6 @@
 export interface SliderContent {
   image: string;
+  mobileImage: string;
   alt: string;
 }
 

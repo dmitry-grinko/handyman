@@ -55,7 +55,7 @@ $icon-size-sm: 44px;
     font-size: $font-size-lg;
     font-weight: $font-weight-semibold;
     margin-bottom: 1rem;
-    color: $text-dark;
+    color: $text-black;
     text-transform: uppercase;
     letter-spacing: 1px;
     line-height: 1.4;
@@ -70,7 +70,7 @@ $icon-size-sm: 44px;
   }
 
   .feature-description {
-    color: $text-light;
+    color: $text-dark;
     font-family: $font-family-base;
     font-size: $font-size-sm;
     font-weight: $font-weight-normal;

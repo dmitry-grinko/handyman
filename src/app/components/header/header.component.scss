@@ -88,6 +88,7 @@ $top-header-height: 40px;
           padding: 35px 15px;
           @include body-small;
           font-weight: $font-weight-medium;
+          color: $text-dark;
           text-transform: uppercase;
           letter-spacing: 0.5px;
           transition: color 0.2s ease;

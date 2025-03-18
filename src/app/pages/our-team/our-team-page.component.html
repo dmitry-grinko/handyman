@@ -6,7 +6,11 @@
 
 <div class="our-team-page container">
     <div class="our-team-page__container">
-        <h1 class="our-team-page__title">Our Team</h1>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <div class="col" *ngFor="let member of teamMembers">
+                <app-team-member [data]="member"></app-team-member>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -1,4 +1,11 @@
+@use "../../../styles/variables" as *;
+@use "../../../styles/mixins" as *;
 
 .our-team-page {
     padding: 100px 0;
+
+    &__container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 }

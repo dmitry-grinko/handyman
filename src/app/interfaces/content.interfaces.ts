@@ -161,3 +161,10 @@ export interface ContactFormData {
   description: string;
   buttonText: string;
 }
+
+export interface TeamMemberData {
+  name: string;
+  position: string;
+  description: string;
+  image: string;
+}

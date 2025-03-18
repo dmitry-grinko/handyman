@@ -1,0 +1,82 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+.team-member {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  &__image {
+    margin-bottom: 1.5rem;
+    
+    img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
+
+  &__content {
+    padding: 0 1rem;
+  }
+
+  &__name {
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__position {
+    font-family: $font-family-base;
+    font-size: $font-size-xs;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    color: rgb(153, 153, 153);
+  }
+
+  &__divider {
+    width: 50px;
+    height: 3px;
+    background-color: $primary-color;
+    margin: 1.5rem auto;
+  }
+
+  &__description {
+    font-family: $font-family-base;
+    font-size: $font-size-sm;
+    font-weight: $font-weight-normal;
+    color: rgb(68, 68, 68);
+    margin-bottom: 1.5rem;
+  }
+}
+
+// Responsive styles
+@include media-breakpoint-down(xl) {
+  .team-member {
+    &__content {
+      padding: 0 2rem;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .team-member {
+    padding: 2rem;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .team-member {
+    padding: 1.5rem;
+  }
+}

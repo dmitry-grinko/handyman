@@ -6,6 +6,8 @@ import { TopButtonComponent } from '../../components/top-button/top-button.compo
 import { ContactsComponent } from '../../components/contacts/contacts.component';
 import { ContentService } from '../../services/content.service';
 import { BreadcrumbsComponent } from '../../components/breadcrumbs/breadcrumbs.component';
+import { TeamMemberComponent, TeamMemberData } from './components/team-member/team-member.component';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-our-team-page',
@@ -15,7 +17,9 @@ import { BreadcrumbsComponent } from '../../components/breadcrumbs/breadcrumbs.c
     CopyrightComponent,
     TopButtonComponent,
     ContactsComponent,
-    BreadcrumbsComponent
+    BreadcrumbsComponent,
+    TeamMemberComponent,
+    NgFor
   ],
   templateUrl: './our-team-page.component.html',
   styleUrl: './our-team-page.component.scss'
@@ -23,8 +27,10 @@ import { BreadcrumbsComponent } from '../../components/breadcrumbs/breadcrumbs.c
 
 export class OurTeamPage {
   breadcrumbData: { title: string };
+  teamMembers: TeamMemberData[] = [];
 
   constructor(private contentService: ContentService) {
     this.breadcrumbData = this.contentService.getBreadcrumbsOurTeamPageData();
+    this.teamMembers = this.contentService.getTeamMembersData();
   }
 }

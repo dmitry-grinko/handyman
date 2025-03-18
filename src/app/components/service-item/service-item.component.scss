@@ -26,6 +26,7 @@
       font-family: $font-family-heading;
       font-size: $font-size-lg;
       font-weight: $font-weight-semibold;
+      color: $text-black;
       margin: 0 0 24px 0;
     }
   
@@ -41,6 +42,7 @@
       font-size: $font-size-sm;
       font-weight: $font-weight-normal;
       line-height: $line-height-relaxed;
+      color: $text-dark;
       margin: 0;
       max-width: 600px;
     }

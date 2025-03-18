@@ -16,7 +16,8 @@ import {
   ProjectsContent,
   ProjectContent,
   HeaderContent,
-  ContactFormData
+  ContactFormData,
+  TeamMemberData
 } from '../interfaces/content.interfaces';
 
 @Injectable({
@@ -439,5 +440,27 @@ export class ContentService {
     };
   }
 
+  getTeamMembersData(): TeamMemberData[] {
+    return [
+      {
+        name: 'MARK WHILBERG',
+        position: 'CO-FOUNDER',
+        description: 'Primus elite lectus tical at node. Porta commodo terminal forks sande. Nulla novum at novelle.',
+        image: 'team_01.png'
+      },
+      {
+        name: 'PHILIP BROWER',
+        position: 'CO-FOUNDER',
+        description: 'Primus elite lectus tical at node. Porta commodo terminal forks sande. Nulla novum at novelle.',
+        image: 'team_01.png'
+      },
+      {
+        name: 'CURTIS GREENE',
+        position: 'CT-OFFICER',
+        description: 'Primus elite lectus tical at node. Porta commodo terminal forks sande. Nulla novum at novelle.',
+        image: 'team_01.png'
+      }
+    ];
+  }
 }
 

@@ -12,7 +12,7 @@
       font-weight: $font-weight-semibold;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
-      color: $text-dark;
+      color: $text-black;
       letter-spacing: 1px;
   
       @include media-breakpoint-down(md) {
@@ -38,7 +38,7 @@
       line-height: $line-height-relaxed;
       max-width: 800px;
       margin: 0 auto;
-      color: $text-light;
+      color: $text-dark;
       
       @include media-breakpoint-down(md) {
         line-height: 1.6;

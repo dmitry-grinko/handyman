@@ -1,17 +1,17 @@
-<div class="services-section">
+<section class="services-section bg-light py-5 py-lg-7">
   <div class="container">
-    <div class="section-header text-center">
+    <div class="section-header text-center mb-5">
       <app-section-title [data]="sectionTitleData"></app-section-title>
     </div>
 
-    <div class="row">
-      <div class="col-md-4" *ngFor="let i of serviceItems">
-          <app-service-item [serviceItemData]="i"></app-service-item>
+    <div class="row g-4 mb-5 justify-content-center">
+      <div class="col-md-6 col-lg-4" *ngFor="let item of serviceItems">
+        <app-service-item [serviceItemData]="item"></app-service-item>
       </div>
     </div>
 
-    <div class="text-center">
+    <div class="d-flex justify-content-center">
       <app-big-button [buttonText]="buttonText" (action)="navigateToProjects()"></app-big-button>
     </div>
   </div>
-</div>
+</section>

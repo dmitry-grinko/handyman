@@ -39,6 +39,7 @@ export interface SocialMediaLink {
 }
 
 export interface FooterAboutContent {
+  title: string;
   description: string;
   socialLinks: SocialMediaLink[];
 }
@@ -135,11 +136,43 @@ export interface FeaturesContent {
   featuresItems: FeaturesItemData[];
 }
 
+export interface FooterServicesSection {
+  title: string;
+  items: FooterService[];
+}
+
+export interface FooterCategoriesSection {
+  title: string;
+  items: FooterCategory[];
+}
+
+export interface FooterPostsSection {
+  title: string;
+  items: FooterPost[];
+}
+
+interface FooterAboutSection {
+  title: string;
+  description: string;
+  socialLinks: SocialMediaLink[];
+}
+
+interface FooterProject {
+  image: string;
+  title: string;
+  date: string;
+}
+
+interface FooterProjectsSection {
+  title: string;
+  items: FooterProject[];
+}
+
 export interface FooterContent {
-  about: FooterAboutContent;
-  services: FooterService[];
-  categories: FooterCategory[];
-  latestPosts: FooterPost[];
+  about: FooterAboutSection;
+  services: FooterServicesSection;
+  categories: FooterCategoriesSection;
+  latestProjects: FooterProjectsSection;
 }
 
 export interface ServiceItemData {

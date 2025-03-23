@@ -4,7 +4,7 @@
     <div class="row">
       <!-- About Us Section -->
       <div class="col-lg-3 col-md-6 mb-4">
-        <h3 class="section-title">About Us</h3>
+        <h3 class="section-title">{{ footerContent.about.title }}</h3>
         <p class="about-text">
           {{ footerContent.about.description }}
         </p>
@@ -19,9 +19,9 @@
   
       <!-- Our Services Section -->
       <div class="col-lg-3 col-md-6 mb-4">
-        <h3 class="section-title">Our Services</h3>
+        <h3 class="section-title">{{ footerContent.services.title }}</h3>
         <ul class="services-list">
-          <li *ngFor="let service of footerContent.services">
+          <li *ngFor="let service of footerContent.services.items">
             <i class="fas {{ service.icon }}"></i> {{ service.name }}
           </li>
         </ul>
@@ -29,25 +29,25 @@
   
       <!-- Categories Section -->
       <div class="col-lg-3 col-md-6 mb-4">
-        <h3 class="section-title">Categories</h3>
+        <h3 class="section-title">{{ footerContent.categories.title }}</h3>
         <div class="categories-grid">
-          <a *ngFor="let category of footerContent.categories" 
+          <a *ngFor="let category of footerContent.categories.items" 
              [href]="category.link" 
              class="category-tag">{{ category.name }}</a>
         </div>
       </div>
   
-      <!-- Latest Posts Section -->
+      <!-- Latest Projects Section -->
       <div class="col-lg-3 col-md-6 mb-4">
-        <h3 class="section-title">Latest Posts</h3>
+        <h3 class="section-title">{{ footerContent.latestProjects.title }}</h3>
         <div class="latest-posts">
-          <div *ngFor="let post of footerContent.latestPosts" class="post-item d-flex mb-3">
+          <div *ngFor="let project of footerContent.latestProjects.items" class="post-item d-flex mb-3">
             <div class="post-image">
-              <img [src]="post.image" [alt]="post.title" class="img-fluid">
+              <img [src]="project.image" [alt]="project.title" class="img-fluid">
             </div>
             <div class="post-content">
-              <h4 class="post-title">{{ post.title }}</h4>
-              <p class="post-date">{{ post.date }}</p>
+              <h4 class="post-title">{{ project.title }}</h4>
+              <p class="post-date">{{ project.date }}</p>
             </div>
           </div>
         </div>

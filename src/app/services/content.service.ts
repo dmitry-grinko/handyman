@@ -19,6 +19,7 @@ import {
   ContactFormData,
   TeamMemberData
 } from '../interfaces/content.interfaces';
+import { OfferSectionData } from '../pages/home-page/components/offer-section/offer-section.component';
 
 @Injectable({
   providedIn: 'root'
@@ -30,12 +31,14 @@ export class ContentService {
   workHours: string = '';
   socialMediaLinks: SocialMediaLink[] = [];
   projects: ProjectContent[] = [];
+  companyName: string = '';
 
   constructor() { 
     this.email = 'rhconstructs@gmail.com'; // TODO: change to the correct email
     this.phone = '(503) 709-7901';
     this.address = 'Portland, Oregon';
     this.workHours = 'Mon - Fri: 8 AM - 6 PM';
+    this.companyName = 'RH Constructs';
 
     this.socialMediaLinks = [
       {
@@ -58,7 +61,7 @@ export class ContentService {
         alt: 'Interior Design Project',
         title: 'Interior Design',
         description: 'Modern home renovation',
-        visible: ["Home Page", "Projects Page"],
+        visible: ["Home Page", "Projects Page", "Footer"],
         category: 'Interior Design'
       },
       {
@@ -66,7 +69,7 @@ export class ContentService {
         alt: 'Outdoor Project',
         title: 'Exterior Design',
         description: 'Garden and pathway renovation',
-        visible: ["Home Page", "Projects Page"],
+        visible: ["Home Page", "Projects Page", "Footer"],
         category: 'Exterior Design'
       },
       {
@@ -100,7 +103,7 @@ export class ContentService {
   getHeaderContent(): HeaderContent {
     return {
       brand: {
-        text: 'RH CONSTRUCTS',
+        text: this.companyName.toUpperCase(),
         link: '/'
       },
       navItems: [
@@ -224,41 +227,44 @@ export class ContentService {
   getFooterContent(): FooterContent {
     return {
       about: {
-        description: 'Founded by Kevin Smith back in 2000. Renovate has established itself as one of the greatest and prestigious providers of construction focused interior renovation services and building.',
+        title: 'About Us',
+        description: 'Founded by Serge Krasnogorov back in 1797. RHC has established itself as one of the greatest and prestigious providers of construction focused interior renovation services and building.',
         socialLinks: this.socialMediaLinks
       },
-      services: [
-        { icon: 'fa-check', name: 'Interior Renovation' },
-        { icon: 'fa-check', name: 'Design and Build' },
-        { icon: 'fa-check', name: 'Tiling and Painting' },
-        { icon: 'fa-check', name: 'Paver Walkways' },
-        { icon: 'fa-check', name: 'Household Repairs' },
-        { icon: 'fa-check', name: 'Solar Systems' }
-      ],
-      categories: [
-        { name: 'BUILD', link: '#' },
-        { name: 'DESIGN', link: '#' },
-        { name: 'FLOORING', link: '#' },
-        { name: 'PAINTING', link: '#' },
-        { name: 'PAVERS', link: '#' },
-        { name: 'PLUMBING', link: '#' },
-        { name: 'RENOVATION', link: '#' },
-        { name: 'REPAIRS', link: '#' },
-        { name: 'SOLAR SYSTEMS', link: '#' },
-        { name: 'TILING', link: '#' }
-      ],
-      latestPosts: [
-        {
-          image: 'post_01.jpg',
-          title: 'What a Difference a Few Months Make',
-          date: 'April 25, 2015'
-        },
-        {
-          image: 'post_02.jpg',
-          title: 'Kitchen and Living Room Renovation',
-          date: 'April 17, 2015'
-        }
-      ]
+      services: {
+        title: 'Our Services',
+        items: [
+          { icon: 'fa-check', name: 'Interior Renovation' },
+          { icon: 'fa-check', name: 'Design and Build' },
+          { icon: 'fa-check', name: 'Tiling and Painting' },
+          { icon: 'fa-check', name: 'Paver Walkways' },
+          { icon: 'fa-check', name: 'Household Repairs' },
+        ]
+      },
+      categories: {
+        title: 'Categories',
+        items: [
+          { name: 'BUILD', link: '#' },
+          { name: 'DESIGN', link: '#' },
+          { name: 'FLOORING', link: '#' },
+          { name: 'PAINTING', link: '#' },
+          { name: 'PAVERS', link: '#' },
+          { name: 'PLUMBING', link: '#' },
+          { name: 'RENOVATION', link: '#' },
+          { name: 'REPAIRS', link: '#' },
+          { name: 'TILING', link: '#' }
+        ]
+      },
+      latestProjects: {
+        title: 'Latest Projects',
+        items: this.projects
+          .filter(project => project.visible?.includes('Footer'))
+          .map(project => ({
+            image: project.src,
+            title: project.title,
+            date: project.description || 'No description available'
+          }))
+      }
     };
   }
 
@@ -340,8 +346,8 @@ export class ContentService {
   getFeaturesContent(): FeaturesContent {
     return {
       sectionTitle: {
-        title: 'WHY CHOOSE RHconstracts',
-        description: 'Founded by Serge Krasnogorov back in 2015, RHconstruct has established itself as one of the greatest and prestigious providers of construction focused interior renovation services and building.'
+        title: `WHY CHOOSE ${this.companyName}`,
+        description: `Founded by Serge Krasnogorov back in 1997, ${this.companyName} has established itself as one of the greatest and prestigious providers of construction focused interior renovation services and building.`
       },
       featuresItems: [
         {
@@ -462,5 +468,28 @@ export class ContentService {
       }
     ];
   }
-}
 
+
+  getOfferSectionData(): OfferSectionData[] {
+    return [
+      {
+        icon: 'fa-regular fa-pen-to-square',
+        buttonText: 'We Offer',
+        title: 'Our Offer',
+        description: 'Paetos dignissim at cursus elefeind norma arcu. Pellentesque accumsan est in tempus etos ullamcorper, sem quam suscipit lacus maecenas tortor. Erates vitae node metus.'
+      },
+      {
+        icon: 'fa-regular fa-handshake',
+        buttonText: 'We Guarantee',
+        title: 'OUR WARRANTY COVERS',
+        description: 'Quality service and customer satisfaction guaranteed. Our team of professionals ensures that every project meets the highest standards of excellence and craftsmanship.'
+      },
+      {
+        icon: 'fa-solid fa-truck',
+        buttonText: 'We Provide',
+        title: 'Our services',
+        description: 'Comprehensive rhconstructs services for all your needs. From small repairs to major renovations, our experienced team delivers reliable solutions on time and within budget.'
+      }
+    ];
+  }
+}

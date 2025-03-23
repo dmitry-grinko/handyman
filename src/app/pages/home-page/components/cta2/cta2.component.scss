@@ -35,6 +35,14 @@ $cta-padding-sm: 2rem;
     line-height: 1.2;
 
     @include media-breakpoint-down(md) {
+      display: none;
+    }
+
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
+
+    @include media-breakpoint-down(md) {
       font-size: 2rem;
     }
 

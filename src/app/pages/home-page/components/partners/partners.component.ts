@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { SectionTitleComponent, SectionTitleData } from '../section-title/section-title.component';
 import { NgbCarousel, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
@@ -12,34 +12,51 @@ import { Partner } from '../../../../interfaces/content.interfaces';
   templateUrl: './partners.component.html',
   styleUrl: './partners.component.scss'
 })
-export class PartnersComponent {
-  @ViewChild('carousel') carousel!: NgbCarousel;
-
+export class PartnersComponent implements OnInit {
   sectionTitleData: SectionTitleData;
-  partners: Partner[];
+  partners: Partner[] = [];
+  slides: Partner[][] = [];
+  itemsPerSlide = 6;
 
   constructor(private contentService: ContentService) {
     const partnersContent = this.contentService.getPartnersContent();
     this.sectionTitleData = partnersContent.sectionTitle;
     this.partners = partnersContent.partners;
+    this.setItemsPerSlide(window.innerWidth);
   }
 
-  // Split partners into groups of 6 for carousel display
-  get partnerGroups(): Partner[][] {
-    const groups: Partner[][] = [];
-    for (let i = 0; i < this.partners.length; i += 6) {
-      groups.push(this.partners.slice(i, i + 6));
+  ngOnInit() {
+    this.createSlides();
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.setItemsPerSlide(event.target.innerWidth);
+    this.createSlides();
+  }
+
+  private setItemsPerSlide(width: number) {
+    if (width < 768) {
+      this.itemsPerSlide = 2; // mobile
+    } else if (width < 1200) {
+      this.itemsPerSlide = 3; // tablet
+    } else {
+      this.itemsPerSlide = 6; // desktop
     }
-    return groups;
   }
 
-  // Track by index for both groups and partners
-  trackByIndex(index: number): number {
-    return index;
-  }
+  private createSlides() {
+    let workingPartners = [...this.partners];
+    while (workingPartners.length < this.itemsPerSlide * 2) {
+      workingPartners = [...workingPartners, ...this.partners];
+    }
 
-  // Track active slide
-  onSlideChange(event: any) {
-    console.log('Slide changed:', event);
+    this.slides = [];
+    for (let i = 0; i < workingPartners.length; i += this.itemsPerSlide) {
+      const slide = workingPartners.slice(i, i + this.itemsPerSlide);
+      if (slide.length === this.itemsPerSlide) {
+        this.slides.push(slide);
+      }
+    }
   }
 }

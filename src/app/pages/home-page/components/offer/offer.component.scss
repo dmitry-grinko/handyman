@@ -22,21 +22,42 @@
       text-align: center;
       padding: 30px;
       background: $white;
-      // border-radius: 8px;
-      min-width: 200px;
       transition: all 0.1s ease;
       cursor: pointer;
+      position: relative;
+      min-width: 200px;
   
       &:hover {
         transform: translateY(-5px);
+      }
+  
+      @include media-breakpoint-down(md) {
+        min-width: auto;
+        padding: 20px;
+        &:hover {
+          transform: none;
+        }
       }
   
       &.active {
         background-color: $primary-color;
         color: $white;
   
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid $primary-color;
+        }
+  
         .icon-wrapper {
-          background-color: rgba(255, 255, 255, 0.2);
+          background-color: transparent;
           
           i {
             color: $white;
@@ -52,7 +73,6 @@
         width: 70px;
         height: 70px;
         border-radius: 50%;
-        background-color: $gray-light;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -67,8 +87,9 @@
   
       h3 {
         margin: 0;
-        font-size: $font-size-lg;
-        font-weight: $font-weight-medium;
+        font-family: $font-family-base;
+        font-size: $font-size-sm;
+        font-weight: $font-weight-normal;
         color: $text-dark;
       }
   

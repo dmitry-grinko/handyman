@@ -1,19 +1,27 @@
 <!-- Partners Section -->
-<section class="partners">
-  <div class="container">
+<section class="bg-light py-5">
+  <div class="container py-5">
     <app-section-title [data]="sectionTitleData"></app-section-title>
     
-    <!-- Partners Carousel -->
-    <ngb-carousel #carousel 
-                 [interval]="5000" 
-                 [pauseOnHover]="true" 
-                 [showNavigationIndicators]="true"
-                 [wrap]="true"
-                 (slide)="onSlideChange($event)">
-      <ng-template ngbSlide *ngFor="let group of partnerGroups; let i = index; trackBy: trackByIndex" [id]="'slide-' + i">
-        <div class="partners__grid">
-          <div class="partners__item" *ngFor="let partner of group; let j = index; trackBy: trackByIndex">
-            <img [src]="partner.logo" [alt]="partner.name" class="partners__logo" loading="lazy">
+    <ngb-carousel *ngIf="slides.length > 0"
+      class="mt-5 mb-4"
+      [interval]="3000"
+      [wrap]="true"
+      [pauseOnHover]="false"
+      [animation]="true">
+      <ng-template ngbSlide *ngFor="let slide of slides; let i = index">
+        <div class="row g-5 justify-content-center">
+          <div class="col-6 col-lg-2 col-md-4" *ngFor="let partner of slide">
+            <div class="card h-100 border-0">
+              <div class="card-body d-flex align-items-center justify-content-center p-4">
+                <img 
+                  [src]="partner.logo" 
+                  [alt]="partner.name" 
+                  class="img-fluid" 
+                  loading="lazy"
+                  [title]="partner.name">
+              </div>
+            </div>
           </div>
         </div>
       </ng-template>

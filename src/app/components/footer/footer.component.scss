@@ -181,3 +181,17 @@ $post-image-height: 60px;
 .footer-bg {
   background-color: $gray-light;
 }
+
+// Hide footer on mobile (less than 576px)
+@media (max-width: 575.98px) {
+  .footer-bg {
+    display: none;
+  }
+}
+
+// Hide footer on tablet (between 576px and 991.98px)
+@media (min-width: 576px) and (max-width: 991.98px) {
+  .footer-bg {
+    display: none;
+  }
+}

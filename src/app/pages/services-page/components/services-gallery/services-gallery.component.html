@@ -1,9 +1,9 @@
-<div class="services-section">
+<section class="services-gallery bg-light py-5 py-lg-7">
   <div class="container">
-    <div class="row">
-      <div class="col-md-4" *ngFor="let i of serviceItems">
-          <app-service-item [serviceItemData]="i"></app-service-item>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-lg-4" *ngFor="let item of serviceItems">
+        <app-service-item [serviceItemData]="item"></app-service-item>
       </div>
     </div>
   </div>
-</div>
+</section>

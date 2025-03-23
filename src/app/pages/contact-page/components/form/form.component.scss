@@ -134,3 +134,42 @@
   }
 }
 
+.form-control {
+  border: 1px solid $border-color;
+  border-radius: 0;
+  
+  &:focus {
+    box-shadow: none;
+    border-color: $primary-color;
+  }
+
+  // Fix for autofill styles
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: $text-dark;
+    -webkit-box-shadow: 0 0 0px 1000px $white inset !important;
+    transition: background-color 0s 50000s;
+  }
+}
+
+.form-floating {
+  > label {
+    color: $text-light;
+  }
+
+  > .form-control {
+    &:focus ~ label {
+      color: $primary-color;
+    }
+  }
+
+  > textarea.form-control {
+    resize: none;
+  }
+}
+
+.text-muted {
+  color: $text-dark !important;
+}
+

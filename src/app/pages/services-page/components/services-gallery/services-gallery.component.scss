@@ -1,0 +1,22 @@
+@use "../../../../../styles/variables" as *;
+@use "../../../../../styles/mixins" as *;
+
+.services-gallery {
+  padding: 80px 0;
+  
+  .row {
+    --bs-gutter-y: 40px; // Adds vertical spacing between rows
+  }
+  
+  @include media-breakpoint-down(lg) {
+    padding: 60px 0;
+  }
+  
+  @include media-breakpoint-down(md) {
+    padding: 40px 0;
+    
+    .row {
+      --bs-gutter-y: 32px;
+    }
+  }
+}

@@ -1,12 +1,8 @@
-<div class="service-item" *ngIf="serviceItemData" #serviceItem>
-  <div class="service-image">
-    <img [src]="serviceItemData.image" alt="" class="img-fluid">
-  </div>
-  <div class="service-content">
-    <h2>{{ serviceItemData.title }}</h2>
-    <div class="divider"></div>
-    <p>
-      {{ serviceItemData.description }}
-    </p>
+<div class="card h-100" *ngIf="serviceItemData">
+  <img [src]="serviceItemData.image" [alt]="serviceItemData.title" class="card-img-top">
+  <div class="card-body d-flex flex-column text-center">
+    <h3 class="card-title">{{ serviceItemData.title }}</h3>
+    <div class="divider mx-auto"></div>
+    <p class="card-text">{{ serviceItemData.description }}</p>
   </div>
 </div>

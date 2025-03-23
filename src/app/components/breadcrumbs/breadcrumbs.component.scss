@@ -20,14 +20,6 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-    .you-are-here {
-      font-family: $font-family-base;
-      color: $text-light;
-      font-size: $font-size-xs;
-      font-weight: $font-weight-normal;
-      margin-right: 4px;
-    }
   }
 
   .breadcrumb {
@@ -38,6 +30,22 @@
     font-size: $font-size-xs;
     display: inline-flex;
     align-items: center;
+
+    .you-are-here {
+      font-family: $font-family-base;
+      color: $text-light;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-normal;
+      margin-right: 4px;
+      list-style: none;
+      display: inline-flex;
+      align-items: center;
+      
+      &::after {
+        content: "";
+        padding-left: 4px;
+      }
+    }
 
     .breadcrumb-item {
       line-height: $line-height-tight;

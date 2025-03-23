@@ -38,6 +38,26 @@ html {
   scroll-behavior: auto !important;
 }
 
+.icon-svg-image.contact-icon-svg-image {
+  width: 54px;
+  
+  @media (max-width: 991px) {
+    width: 46px; // For tablets
+  }
+  
+  @media (max-width: 576px) {
+    width: 28px; // For mobile
+  }
+}
+
 .icon-svg-image {
   width: 60px;
+  
+  // @media (max-width: 991px) {
+  //   width: 46px; // For tablets
+  // }
+  
+  // @media (max-width: 576px) {
+  //   width: 28px; // For mobile
+  // }
 }

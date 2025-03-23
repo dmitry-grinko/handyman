@@ -18,6 +18,15 @@
   }
 }
 
+.contact-item.clickable {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
 .contact-icon {
   background-color: $white;
   border-radius: 50%;

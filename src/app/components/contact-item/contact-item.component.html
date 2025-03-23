@@ -1,5 +1,8 @@
 <!-- Contact Item Container -->
-<div class="contact-item" *ngIf="contactItemData">
+<div class="contact-item" 
+     *ngIf="contactItemData"
+     [class.clickable]="isClickable()"
+     (click)="handleContactClick()">
   <!-- Icon Container -->
   <div class="contact-icon" [class]="{
     'border-red': contactItemData.borderColor === 'red',

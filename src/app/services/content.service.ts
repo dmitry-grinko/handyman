@@ -88,6 +88,14 @@ export class ContentService {
         visible: ["Home Page", "Projects Page"],
         category: 'Bathroom Upgrade'
       },
+      {
+        src: '/project_3.jpg',
+        alt: 'Luxury Bathroom Upgrade',
+        title: 'Bathroom Upgrade',
+        description: 'Professional plumbing services',
+        visible: ["Projects Page"],
+        category: 'Bathroom Upgrade'
+      },
     ]
   }
 

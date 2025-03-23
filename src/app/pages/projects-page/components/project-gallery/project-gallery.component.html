@@ -9,7 +9,7 @@
 
     <ngx-masonry [options]="masonryOptions">
       <div ngxMasonryItem class="masonry-item" *ngFor="let image of filteredImages">
-        <div class="masonry-content">
+        <div class="masonry-content" (click)="openImageModal(image)">
           <img [src]="image.src" [alt]="image.title">
           <div class="overlay">
             <h3>{{ image.title }}</h3>
@@ -17,5 +17,41 @@
         </div>
       </div>
     </ngx-masonry>
+  </div>
+</div>
+
+<!-- Image Modal -->
+<div class="image-modal" *ngIf="selectedImage" (click)="closeImageModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-btn" (click)="closeImageModal()">×</button>
+    
+    <div class="slider-container" (swipeleft)="nextImage()" (swiperight)="prevImage()">
+      <div class="slider-track" [ngStyle]="{
+        'transform': 'translateX(' + slidePosition + '%)', 
+        'transition': isAnimating ? 'transform 0.4s ease-out' : 'none'
+      }">
+        <!-- Regular slides without clones -->
+        <div class="slide" *ngFor="let image of filteredImages; let i = index">
+          <img [src]="image.src" [alt]="image.title">
+        </div>
+      </div>
+      
+      <!-- Disable buttons when at first or last image -->
+      <button class="nav-btn prev-btn" 
+              (click)="prevImage()" 
+              *ngIf="filteredImages.length > 1"
+              [disabled]="currentIndex === 0"
+              [class.disabled]="currentIndex === 0">◀</button>
+              
+      <button class="nav-btn next-btn" 
+              (click)="nextImage()" 
+              *ngIf="filteredImages.length > 1"
+              [disabled]="currentIndex === filteredImages.length - 1"
+              [class.disabled]="currentIndex === filteredImages.length - 1">▶</button>
+    </div>
+    
+    <div class="modal-details">
+      <h2>{{ selectedImage.title }}</h2>
+    </div>
   </div>
 </div>

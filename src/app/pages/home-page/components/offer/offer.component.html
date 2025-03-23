@@ -9,7 +9,7 @@
                  [class.active]="activeSection === i"
                  (click)="setActiveSection(i)">
               <div class="icon-wrapper d-none d-md-flex">
-                <i [class]="section.icon"></i>
+                <img [src]="activeSection === i ? section.activeIcon : section.icon" alt="Offer Icon" class="icon-svg-image">
               </div>
               <h3>{{ section.buttonText }}</h3>
             </div>

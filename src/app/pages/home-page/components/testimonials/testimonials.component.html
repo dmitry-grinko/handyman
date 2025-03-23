@@ -1,10 +1,10 @@
 <div class="testimonials-section">
   <div class="container">
     <ngb-carousel #carousel [interval]="5000" [pauseOnHover]="true" [pauseOnFocus]="true" [showNavigationArrows]="false" [showNavigationIndicators]="false">
-      <ng-template ngbSlide *ngFor="let testimonial of testimonials">
+      <ng-template ngbSlide *ngFor="let testimonial of testimonials.items">
         <div class="testimonial-container">
           <div class="testimonial-icon">
-            <i class="fa-regular fa-comments"></i>
+            <img [src]="testimonials.icon" alt="Testimonial Icon" class="icon-svg-image">
           </div>
           <div class="testimonial-content">
             <blockquote class="testimonial-text">

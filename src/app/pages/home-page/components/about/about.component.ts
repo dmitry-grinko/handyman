@@ -25,9 +25,6 @@ export class AboutComponent {
   constructor(private contentService: ContentService) {
     const aboutContent = this.contentService.getAboutContent();
     this.sectionTitleData = aboutContent.sectionTitle;
-    this.aboutItemData = aboutContent.aboutItems.map(item => ({
-      ...item,
-      icon: this.iconMap[item.icon as keyof typeof this.iconMap]
-    }));
+    this.aboutItemData = aboutContent.aboutItems;
   }
 }

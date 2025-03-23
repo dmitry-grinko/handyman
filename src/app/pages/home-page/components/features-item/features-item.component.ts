@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 export interface FeaturesItemData {
   title: string;
@@ -17,10 +16,4 @@ export interface FeaturesItemData {
 })
 export class FeaturesItemComponent {
   @Input() data: FeaturesItemData | undefined;
-
-  constructor(private sanitizer: DomSanitizer) {}
-
-  getSafeIcon(): SafeHtml | undefined {
-    return this.data ? this.sanitizer.bypassSecurityTrustHtml(this.data.icon) : undefined;
-  }
 }

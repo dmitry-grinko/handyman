@@ -51,20 +51,9 @@ $nav-button-size-mobile: 48px;
 
   // Testimonial icon
   .testimonial-icon {
-    width: 80px;
-    height: 80px;
-    border: 1px solid $white;
-    border-radius: 50%;
-    @include flex-center;
-    margin: 0 auto 2.5rem; // Reduced margin to give more space to text
-    position: relative;
-    flex-shrink: 0; // Prevent icon from shrinking
-    
-    i {
-      font-size: 2rem;
-      color: $white;
-      font-weight: 100;
-    }
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
   }
 
   // Testimonial content
@@ -76,7 +65,7 @@ $nav-button-size-mobile: 48px;
   }
 
   .testimonial-text {
-    font-family: $font-family-heading;
+    font-family: $font-family-base;
     font-size: $font-size-xl;
     font-weight: $font-weight-light;
     line-height: $line-height-relaxed;
@@ -233,16 +222,6 @@ $nav-button-size-mobile: 48px;
       max-height: 160px; // Adjusted for tablet
     }
 
-    .testimonial-icon {
-      width: 70px;
-      height: 70px;
-      margin-bottom: 2rem; // Further reduced for tablet
-      
-      i {
-        font-size: 1.75rem;
-      }
-    }
-
     .yellow-stripe {
       width: 35px;
       margin-bottom: 15px;
@@ -264,16 +243,6 @@ $nav-button-size-mobile: 48px;
       font-size: $font-size-base;
       padding: 0 15px;
       max-height: 140px; // Adjusted for mobile
-    }
-
-    .testimonial-icon {
-      width: 60px;
-      height: 60px;
-      margin-bottom: 1.5rem; // Further reduced for mobile
-      
-      i {
-        font-size: 1.5rem;
-      }
     }
 
     .yellow-stripe {

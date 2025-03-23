@@ -10,14 +10,14 @@ import {
   FooterContent,
   ServicesContent,
   PartnersContent,
-  Testimonial,
   AboutContent,
   FeaturesContent,
   ProjectsContent,
   ProjectContent,
   HeaderContent,
   ContactFormData,
-  TeamMemberData
+  TeamMemberData,
+  TestimonialsData
 } from '../interfaces/content.interfaces';
 import { OfferSectionData } from '../pages/home-page/components/offer-section/offer-section.component';
 
@@ -171,21 +171,21 @@ export class ContentService {
       bgColor: 'red',
       items: [
         {
-          icon: 'faPhone',
+          icon: '/svg/phone_red.svg',
           label: 'Phone',
           value: this.phone,
           whiteText: true,
           borderColor: 'red'
         },
         {
-          icon: 'faEnvelope',
+          icon: '/svg/email_red.svg',
           label: 'Email',
           value: this.email,
           whiteText: true,
           borderColor: 'red'
         },
         {
-          icon: 'faLocation',
+          icon: '/svg/map_red.svg',
           label: '',
           value: this.address,
           whiteText: true,
@@ -200,21 +200,21 @@ export class ContentService {
       bgColor: 'white',
       items: [
         {
-          icon: 'faLocation',
+          icon: '/svg/map_red.svg',
           label: '',
           value: this.address,
           whiteText: false,
           borderColor: 'gray'
         },
         {
-          icon: 'faPhone',
+          icon: '/svg/phone_red.svg',
           label: 'Phone',
           value: this.phone,
           whiteText: false,
           borderColor: 'gray'
         },
         {
-          icon: 'faClock',
+          icon: '/svg/clock_red.svg',
           label: 'Work Hours',
           value: this.workHours,
           whiteText: false,
@@ -318,29 +318,32 @@ export class ContentService {
     };
   }
 
-  getTestimonialsContent(): Testimonial[] {
-    return [
-      {
-        text: "We would like to thank Renovate Company for an outstanding effort on this recently completed project located in the Moscow. The project involved a very aggressive schedule and it was completed on time. We would certainly like to use their professional services again.",
-        authorName: "MITCHEL SMITH",
-        authorPosition: "CEO OF NEW PORT COMPANY"
-      },
-      {
-        text: "The attention to detail and professional service we received from Renovate Company was exceptional. Their team showed true craftsmanship in every aspect of our home renovation project. The results exceeded our expectations.",
-        authorName: "SARAH JOHNSON",
-        authorPosition: "DIRECTOR OF DESIGN STUDIOS"
-      },
-      {
-        text: "Working with Renovate Company has been a game-changing experience for our commercial projects. Their innovative solutions and commitment to deadlines make them our go-to construction partner. Highly recommended for any scale project.",
-        authorName: "DAVID ANDERSON",
-        authorPosition: "HEAD OF DEVELOPMENT, URBAN BUILDERS"
-      },
-      {
-        text: "The team at Renovate Company brings both expertise and creativity to every project. Their ability to transform our vision into reality while maintaining budget constraints was impressive. The end result was exactly what we wanted.",
-        authorName: "EMMA THOMPSON",
-        authorPosition: "OWNER, MODERN SPACES"
-      }
-    ];
+  getTestimonialsContent(): TestimonialsData {
+    return {
+      icon: '/svg/feedback.svg',
+      items: [
+        {
+          text: "We would like to thank Renovate Company for an outstanding effort on this recently completed project located in the Moscow. The project involved a very aggressive schedule and it was completed on time. We would certainly like to use their professional services again.",
+          authorName: "MITCHEL SMITH",
+          authorPosition: "CEO OF NEW PORT COMPANY"
+        },
+        {
+          text: "The attention to detail and professional service we received from Renovate Company was exceptional. Their team showed true craftsmanship in every aspect of our home renovation project. The results exceeded our expectations.",
+          authorName: "SARAH JOHNSON",
+          authorPosition: "DIRECTOR OF DESIGN STUDIOS"
+        },
+        {
+          text: "Working with Renovate Company has been a game-changing experience for our commercial projects. Their innovative solutions and commitment to deadlines make them our go-to construction partner. Highly recommended for any scale project.",
+          authorName: "DAVID ANDERSON",
+          authorPosition: "HEAD OF DEVELOPMENT, URBAN BUILDERS"
+        },
+        {
+          text: "The team at Renovate Company brings both expertise and creativity to every project. Their ability to transform our vision into reality while maintaining budget constraints was impressive. The end result was exactly what we wanted.",
+          authorName: "EMMA THOMPSON",
+          authorPosition: "OWNER, MODERN SPACES"
+        }
+      ]
+    };
   }
 
   getFeaturesContent(): FeaturesContent {
@@ -351,18 +354,18 @@ export class ContentService {
       },
       featuresItems: [
         {
-          title: 'Experienced Team',
-          icon: 'home',
+          title: 'OVER 15 YEARS EXPERIENCE',
+          icon: '/svg/villa.svg',
           description: 'Over 10 years in the renovation and construction industry.'
         },
         {
-          title: 'High-Quality Materials',
-          icon: 'tool',
+          title: 'BEST MATERIALS',
+          icon: '/svg/material.svg',
           description: 'RWe use only the best materials to ensure long-lasting results.'
         },
         {
-          title: 'Affordable Pricing',
-          icon: 'briefcase',
+          title: 'PROFESSIONAL STANDARDS',
+          icon: '/svg/prof_red.svg',
           description: 'Transparent and competitive pricing for all projects.'
         }
       ]
@@ -378,17 +381,17 @@ export class ContentService {
       aboutItems: [
         {
           title: 'OVER 15 YEARS EXPERIENCE',
-          icon: 'faHelmetSafety',
+          icon: '/svg/exp_red.svg',
           description: 'We combine quality workmanship, superior knowledge and low prices to provide you with service unmatched by our competitors.'
         },
         {
           title: 'BEST MATERIALS',
-          icon: 'faPaintRoller',
+          icon: '/svg/roller_red.svg',
           description: 'We have the experience, personel and resources to make the project run smoothly. We can ensure a job is done on time.'
         },
         {
           title: 'PROFESSIONAL STANDARDS',
-          icon: 'faScrewdriverWrench',
+          icon: '/svg/build_red.svg',
           description: 'Work with us involve a carefully planned series of steps, centered around a schedule we stick to and daily communication.'
         }
       ]
@@ -473,19 +476,22 @@ export class ContentService {
   getOfferSectionData(): OfferSectionData[] {
     return [
       {
-        icon: 'fa-regular fa-pen-to-square',
+        icon: '/svg/offer_red.svg',
+        activeIcon: '/svg/offer_white.svg',
         buttonText: 'We Offer',
         title: 'Our Offer',
         description: 'Paetos dignissim at cursus elefeind norma arcu. Pellentesque accumsan est in tempus etos ullamcorper, sem quam suscipit lacus maecenas tortor. Erates vitae node metus.'
       },
       {
-        icon: 'fa-regular fa-handshake',
+        icon: '/svg/shield_red.svg',
+        activeIcon: '/svg/shield_white.svg',
         buttonText: 'We Guarantee',
         title: 'OUR WARRANTY COVERS',
         description: 'Quality service and customer satisfaction guaranteed. Our team of professionals ensures that every project meets the highest standards of excellence and craftsmanship.'
       },
       {
-        icon: 'fa-solid fa-truck',
+        icon: '/svg/truck_red.svg',
+        activeIcon: '/svg/truck_white.svg',
         buttonText: 'We Provide',
         title: 'Our services',
         description: 'Comprehensive rhconstructs services for all your needs. From small repairs to major renovations, our experienced team delivers reliable solutions on time and within budget.'

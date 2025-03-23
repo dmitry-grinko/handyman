@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ContactItemComponent, ContactItemData } from '../contact-item/contact-item.component';
+import { ContactItemComponent } from '../contact-item/contact-item.component';
 import { faPhone, faEnvelope, faLocation, faClock } from '@fortawesome/free-solid-svg-icons';
 import { NgFor, NgIf } from '@angular/common';
 import { ContentService } from '../../services/content.service';
+import { ContactContent } from '../../interfaces/content.interfaces';
 // import { ContactContent } from '../../interfaces/content.interfaces';
 
 @Component({
@@ -13,7 +14,7 @@ import { ContentService } from '../../services/content.service';
 })
 export class ContactsComponent implements OnInit {
   @Input() theme: string | undefined;
-  contactItemData: ContactItemData[] = [];
+  contactItemData: ContactContent[] = [];
   bgColor: string = '';
 
   private iconMap = {
@@ -36,10 +37,7 @@ export class ContactsComponent implements OnInit {
 
     console.log("this.theme", this.theme);
 
-    this.contactItemData = contactContent.items.map(item => ({
-      ...item,
-      icon: this.iconMap[item.icon]
-    }));
+    this.contactItemData = contactContent.items;
     this.bgColor = contactContent.bgColor;
   }
 }

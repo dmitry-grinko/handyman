@@ -23,7 +23,7 @@
   }
 
   .card-title {
-    font-family: $font-family-heading;
+    font-family: $font-family-base;
     font-size: $font-size-lg;
     font-weight: $font-weight-semibold;
     margin-bottom: 1.25rem;
@@ -77,7 +77,7 @@
     align-items: center;
     
     h2 {
-      font-family: $font-family-heading;
+      font-family: $font-family-base;
       font-size: $font-size-lg;
       font-weight: $font-weight-semibold;
       color: $text-black;

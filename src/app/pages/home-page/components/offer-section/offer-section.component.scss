@@ -11,16 +11,16 @@
       font-size: $font-size-lg;
       font-weight: $font-weight-semibold;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: $font-size-xl;
       color: $text-black;
       letter-spacing: 1px;
   
       @include media-breakpoint-down(md) {
-        font-size: 1.5rem;
+        font-size: $font-size-xl;
       }
   
       @include media-breakpoint-down(sm) {
-        font-size: 1.75rem;
+        font-size: $font-size-lg;
       }
     }
   

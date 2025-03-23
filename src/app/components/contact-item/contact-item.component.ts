@@ -2,13 +2,7 @@ import { Component, Input } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { NgIf } from '@angular/common';
-export interface ContactItemData {
-  icon: IconDefinition;
-  label: string;
-  value: string;
-  whiteText: boolean;
-  borderColor: string;
-}
+import { ContactContent } from '../../interfaces/content.interfaces';
 
 @Component({
   selector: 'app-contact-item',
@@ -17,5 +11,5 @@ export interface ContactItemData {
   styleUrl: './contact-item.component.scss'
 })
 export class ContactItemComponent {
-  @Input() contactItemData: ContactItemData | undefined;
+  @Input() contactItemData: ContactContent | undefined;
 }

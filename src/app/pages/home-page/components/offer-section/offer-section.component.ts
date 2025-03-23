@@ -3,6 +3,7 @@ import { NgIf } from '@angular/common';
 
 export interface OfferSectionData {
   icon: string;
+  activeIcon: string;
   buttonText: string;
   title: string;
   description: string;

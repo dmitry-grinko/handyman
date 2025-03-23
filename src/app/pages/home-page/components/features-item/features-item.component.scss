@@ -20,8 +20,8 @@ $icon-size-sm: 44px;
     margin-bottom: 2.75rem;
 
     .icon-circle {
-      width: 140px;
-      height: 140px;
+      width: 100px;
+      height: 100px;
       background-color: transparent;
       border-radius: 50%;
       display: flex;
@@ -51,7 +51,7 @@ $icon-size-sm: 44px;
   }
 
   .feature-title {
-    font-family: $font-family-heading;
+    font-family: $font-family-base;
     font-size: $font-size-lg;
     font-weight: $font-weight-semibold;
     margin-bottom: 1rem;
@@ -64,7 +64,7 @@ $icon-size-sm: 44px;
   .title-underline {
     width: 40px;
     height: 2px;
-    background-color: $secondary-color;
+    background-color: $primary-color;
     margin: 0 auto 1.25rem;
     opacity: 0.8;
   }

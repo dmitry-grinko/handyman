@@ -26,7 +26,7 @@ export interface CopyrightContent {
 }
 
 export interface ContactContent {
-  icon: 'faPhone' | 'faEnvelope' | 'faLocation' | 'faClock';
+  icon: string;
   label: string;
   value: string;
   whiteText: boolean;
@@ -103,10 +103,13 @@ export interface FooterPost {
   date: string;
 }
 
-export interface Testimonial {
-  text: string;
-  authorName: string;
-  authorPosition: string;
+export interface TestimonialsData {
+  icon: string;
+  items: {
+    text: string;
+    authorName: string;
+    authorPosition: string;
+  }[];
 }
 
 export interface Partner {

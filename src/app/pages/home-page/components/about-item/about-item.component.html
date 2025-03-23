@@ -1,6 +1,6 @@
 <div class="about-item" *ngIf="aboutItemData">
   <div class="about-item__icon">
-    <fa-icon [icon]="aboutItemData.icon"></fa-icon>
+    <img [src]="aboutItemData.icon" alt="About Item Icon" class="icon-svg-image">
   </div>
   <div class="about-item__content">
     <h2>{{ aboutItemData.title }}</h2>

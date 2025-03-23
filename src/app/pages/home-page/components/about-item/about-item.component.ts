@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export interface AboutItemData {
-  icon: IconDefinition;
+  icon: string;
   title: string;
   description: string;
 }

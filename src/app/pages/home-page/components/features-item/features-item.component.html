@@ -1,7 +1,7 @@
 <div class="feature-item text-center" *ngIf="data">
   <div class="icon-wrapper">
     <div class="icon-circle">
-      <div [innerHTML]="getSafeIcon()"></div>
+      <img class="icon-svg-image" [src]="data.icon" alt="feature icon">
     </div>
     <div class="connector-line"></div>
   </div>

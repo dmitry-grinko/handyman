@@ -51,7 +51,7 @@ $top-header-height: 40px;
     }
 
     .navbar-brand {
-      color: $secondary-color;
+      color: $primary-color;
       text-decoration: none;
       padding: 0;
       margin-right: 50px;
@@ -100,7 +100,7 @@ $top-header-height: 40px;
 
           &:hover,
           &.active {
-            color: $secondary-color;
+            color: $primary-color;
           }
         }
 

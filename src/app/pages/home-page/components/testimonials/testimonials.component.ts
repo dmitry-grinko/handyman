@@ -2,7 +2,7 @@ import { Component, ViewChild, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgbCarousel, NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContentService } from '../../../../services/content.service';
-import { Testimonial } from '../../../../interfaces/content.interfaces';
+import { TestimonialsData } from '../../../../interfaces/content.interfaces';
 
 @Component({
   selector: 'app-testimonials',
@@ -13,7 +13,7 @@ import { Testimonial } from '../../../../interfaces/content.interfaces';
 })
 export class TestimonialsComponent {
   @ViewChild('carousel') carousel!: NgbCarousel;
-  testimonials: Testimonial[];
+  testimonials: TestimonialsData;
   isMobile: boolean = false;
   isTablet: boolean = false;
 

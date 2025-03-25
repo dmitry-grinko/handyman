@@ -5,7 +5,7 @@ import { ContentService } from '../../services/content.service';
 export interface TopHeaderContent {
   email: string;
   phone: string;
-  workHours: string;
+  ccb: string;
   icons: { icon: string; link: string }[];
 }
 

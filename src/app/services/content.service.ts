@@ -28,17 +28,19 @@ export class ContentService {
   email: string = '';
   phone: string = '';
   address: string = '';
-  workHours: string = '';
+  ccb: string = '';
   socialMediaLinks: SocialMediaLink[] = [];
   projects: ProjectContent[] = [];
   companyName: string = '';
 
   constructor() { 
-    this.email = 'rhconstructs@gmail.com'; // TODO: change to the correct email
+    this.email = 'info@redhillsconstructs.org'; // TODO: change to the correct email
     this.phone = '(503) 709-7901';
-    this.address = 'Portland, Oregon';
-    this.workHours = 'Mon - Fri: 8 AM - 6 PM';
-    this.companyName = 'RH Constructs';
+    this.address = 'Oregon City, OR';
+    this.ccb = 'CCB 242765';
+    this.companyName = 'RedHills Constructs';
+
+    // CCB 242765
 
     this.socialMediaLinks = [
       {
@@ -103,7 +105,7 @@ export class ContentService {
     return {
       email: this.email,
       phone: this.phone,
-      workHours: this.workHours,
+      ccb: this.ccb,
       icons: this.socialMediaLinks,
     }
   }
@@ -222,9 +224,9 @@ export class ContentService {
           borderColor: 'gray'
         },
         {
-          icon: '/svg/clock_red.svg',
-          label: 'Work Hours',
-          value: this.workHours,
+          icon: '/svg/ccb_red.svg',
+          label: 'Oregon Construction Contractors Board',
+          value: this.ccb,
           whiteText: false,
           borderColor: 'gray'
         }
@@ -236,7 +238,7 @@ export class ContentService {
     return {
       about: {
         title: 'About Us',
-        description: 'Founded by Serge Krasnogorov back in 1797. RHC has established itself as one of the greatest and prestigious providers of construction focused interior renovation services and building.',
+        description: 'Founded by Serge Krasnogorov back in 1998. RHC has established itself as one of the greatest and prestigious providers of construction focused interior renovation services and building.',
         socialLinks: this.socialMediaLinks
       },
       services: {

@@ -2,16 +2,19 @@
   <div class="container">
     <div class="contact-info">
       <div class="contact-item">
-        <i class="fa-solid fa-phone"></i>
+        <!-- <i class="fa-solid fa-phone"></i> -->
+        <img src="/svg/phone_gray.svg" alt="Phone Icon" class="contact-icon-svg-image">
         <a [href]="'tel:' + data.phone">{{data.phone}}</a>
       </div>
       <div class="contact-item">
-        <i class="fa-solid fa-envelope"></i>
+        <!-- <i class="fa-solid fa-envelope"></i> -->
+        <img src="/svg/email_gray.svg" alt="Email Icon" class="contact-icon-svg-image">
         <a [href]="'mailto:' + data.email">{{data.email}}</a>
       </div>
       <div class="contact-item">
-        <i class="fa-regular fa-clock"></i>
-        <span>{{data.workHours}}</span>
+        <!-- <i class="fa-regular fa-clock"></i> -->
+        <img src="/svg/ccb_gray.svg" alt="CCB Icon" class="contact-icon-svg-image">
+        <span>{{data.ccb}}</span>
       </div>
     </div>
     <div class="social-links">

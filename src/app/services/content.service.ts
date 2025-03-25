@@ -295,7 +295,7 @@ export class ContentService {
   getServicesContent(): ServicesContent {
     return {
       sectionTitle: {
-        title: 'RH CONSTRUCTS',
+        title: 'REDHILLS CONSTRUCTS',
         description: 'With over 10 years experience and real focus on customer satisfaction, you can rely on us for your next renovation, driveway sett or home repair. We provide a professional service for private and commercial customers.'
       },
       serviceItems: [

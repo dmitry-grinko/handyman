@@ -1,27 +1,15 @@
 <div class="top-header">
   <div class="container">
     <div class="contact-info">
-      <div class="contact-item">
-        <!-- <i class="fa-solid fa-phone"></i> -->
-        <img src="/svg/phone_gray.svg" alt="Phone Icon" class="contact-icon-svg-image">
-        <a [href]="'tel:' + data.phone">{{data.phone}}</a>
-      </div>
-      <div class="contact-item">
-        <!-- <i class="fa-solid fa-envelope"></i> -->
-        <img src="/svg/email_gray.svg" alt="Email Icon" class="contact-icon-svg-image">
-        <a [href]="'mailto:' + data.email">{{data.email}}</a>
-      </div>
-      <div class="contact-item">
-        <!-- <i class="fa-regular fa-clock"></i> -->
-        <img src="/svg/ccb_gray.svg" alt="CCB Icon" class="contact-icon-svg-image">
-        <span>{{data.ccb}}</span>
+      <div class="contact-item" *ngFor="let item of data.leftItems">
+        <img [src]="item.icon" [alt]="item.alt" class="contact-icon-svg-image">
+        <a [href]="'tel:' + item.name" class="contact-item-link">{{item.name}}</a>
       </div>
     </div>
     <div class="social-links">
-      <a *ngFor="let icon of data.icons" [href]="icon.link" class="social-link" target="_blank">
-        <i [class]="icon.icon"></i>
+      <a *ngFor="let item of data.rightItems" [href]="item.link" class="social-link" target="_blank">
+        <i [class]="item.icon"></i>
       </a>
     </div>
   </div>
 </div>
-

@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ContentService } from '../../services/content.service';
 
 export interface TopHeaderContent {
-  email: string;
-  phone: string;
-  ccb: string;
-  icons: { icon: string; link: string }[];
+  leftItems: { icon: string; name: string; alt: string }[];
+  rightItems: { icon: string; link: string }[];
 }
 
 @Component({

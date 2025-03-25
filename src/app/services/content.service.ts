@@ -103,10 +103,24 @@ export class ContentService {
 
   getTopHeaderContent(): TopHeaderContent {
     return {
-      email: this.email,
-      phone: this.phone,
-      ccb: this.ccb,
-      icons: this.socialMediaLinks,
+      leftItems: [
+        {
+          icon: '/svg/phone_gray.svg',
+          alt: 'Phone Icon',
+          name: this.phone,
+        },
+        {
+          icon: '/svg/email_gray.svg',
+          alt: 'Email Icon',
+          name: this.email,
+        },
+        {
+          icon: '/svg/ccb_gray.svg',
+          alt: 'CCB Icon',
+          name: this.ccb,
+        }
+      ],
+      rightItems: this.socialMediaLinks
     }
   }
 

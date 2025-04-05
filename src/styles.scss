@@ -5,6 +5,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap');
 
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+
 // Global icon styles
 i[class^="fa-"],
 i[class*=" fa-"] {
